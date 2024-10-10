@@ -10,6 +10,7 @@
   --color-gray-01: #bbbbbb;
   --color-gray-02: #828282;
   --color-gray-03: #484A4D;
+  --color-gray-04: #303030;
   --color-violet-01: #4969D8;
   --color-light-gray-01:#E5E5E5;
   --gradient-base: linear-gradient(to right, var(--color-orange-01), var(--color-yellow-01));
@@ -17,5 +18,6 @@
   --gradient-active: linear-gradient(to right, var(--color-yellow-02), var(--color-green-02));
 
   --font-main: "Golos Text", sans-serif;
+  --main-background: var(--color-gray-04);
 }
 

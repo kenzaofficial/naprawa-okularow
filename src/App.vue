@@ -13,6 +13,7 @@ export default {
 #app {
   font-family: var(--font-main);
   text-align: center;
+  background-color: var(--main-background);
   display: flex;
   flex-direction: column;
   min-height: 100vh;

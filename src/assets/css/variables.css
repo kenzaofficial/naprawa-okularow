@@ -1,23 +1,20 @@
 :root {
+  --color-white: #fff;
   --color-orange-01: #faa848;
   --color-orange-02: #e96417;
   --color-yellow-01: #e8c619;
   --color-yellow-02: #f8f403;
   --color-green-01: #b3df3c;
-  --color-green-02:#b4ab25;
-  --color-green-03:#1DAB34;
+  --color-green-02: #b4ab25;
+  --color-green-03: #1dab34;
   --color-black-01: #000;
   --color-gray-01: #bbbbbb;
   --color-gray-02: #828282;
-  --color-gray-03: #484A4D;
+  --color-gray-03: #484a4d;
   --color-gray-04: #303030;
-  --color-violet-01: #4969D8;
-  --color-light-gray-01:#E5E5E5;
-  --gradient-base: linear-gradient(to right, var(--color-orange-01), var(--color-yellow-01));
-  --gradient-hover: linear-gradient(to right, var(--color-orange-02), var(--color-green-01));
-  --gradient-active: linear-gradient(to right, var(--color-yellow-02), var(--color-green-02));
+  --color-violet-01: #4969d8;
+  --color-light-gray-01: #e5e5e5;
 
-  --font-main: "Golos Text", sans-serif;
+  --font-main: 'Golos Text', sans-serif;
   --main-background: var(--color-gray-04);
 }
-

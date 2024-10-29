@@ -6,10 +6,6 @@
         <div class="layout__hero">
           <div class="layout__hero-text">
             <h1 class="layout__title">{{ title }}</h1>
-            <p class="layout__subtitle">{{ subtitle }}</p>
-            <p v-if="additionalSubtitle" class="layout__subtitle">
-              {{ additionalSubtitle }}
-            </p>
           </div>
           <img
             v-if="mode === 'secondary' || mode === 'thirdly'"
@@ -36,17 +32,9 @@ export default {
       type: String,
       default: 'default title',
     },
-    subtitle: {
-      type: String,
-      default: 'default subtitle',
-    },
     hasAdditionalFooter: {
       type: Boolean,
       default: false,
-    },
-    additionalSubtitle: {
-      type: String,
-      default: '',
     },
     mode: {
       type: String,
@@ -54,7 +42,6 @@ export default {
     },
     heroImgName: {
       type: String,
-      required: true,
       default: '',
     },
   },
@@ -71,24 +58,12 @@ export default {
 .layout--secondary .layout__title {
   text-align: left;
 }
-.layout--secondary .layout__subtitle {
-  text-align: left;
-  color: var(--color-black);
-}
 
 .layout__title {
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
   margin-bottom: 10px;
-}
-.layout__subtitle {
-  font-size: 12px;
-  line-height: 18px;
-  color: var(--color-gray-02);
-}
-.layout__subtitle:not(:last-child) {
-  margin-bottom: 20px;
 }
 .layout__main {
   flex-grow: 1;
@@ -107,11 +82,7 @@ export default {
     padding: 0 20px;
     max-width: 1200px;
   }
-  .layout--secondary .layout__subtitle {
-    font-size: 20px;
-    line-height: 26px;
-    color: var(--color-gray-02);
-  }
+
   .layout--secondary .layout__hero {
     display: flex;
     align-items: center;
@@ -135,12 +106,6 @@ export default {
   .layout__title {
     margin-bottom: 20px;
     font-size: 32px;
-  }
-  .layout__subtitle {
-    font-size: 18px;
-  }
-  .layout__subtitle:not(:last-child) {
-    margin-bottom: 40px;
   }
   .layout__hero-text {
     margin-bottom: 40px;

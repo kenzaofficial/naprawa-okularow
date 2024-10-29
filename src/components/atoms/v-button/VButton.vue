@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="button" :class="{ 'button--wide': isWide }">
+  <button :type="type" class="button" :class="{ 'button--wide': isWide }">
     {{ text }}
   </button>
 </template>
@@ -16,6 +16,10 @@ export default {
       type: String,
       default: 'buttonText',
     },
+    type: {
+      type: String,
+      default: 'button',
+    },
   },
 }
 </script>
@@ -29,15 +33,16 @@ export default {
   font-weight: 600;
   padding: 15px;
   line-height: 1;
-  background: var(--gradient-base);
+  background: var(--color-yellow-01);
+  border-radius: 5px;
 }
 
 .button:hover {
-  background: var(--gradient-hover);
+  background: var(--color-yellow-02);
 }
 
 .button:active {
-  background: var(--gradient-active);
+  background: var(--color-green-01);
 }
 
 .button--wide {

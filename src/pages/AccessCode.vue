@@ -3,20 +3,20 @@
     title="Расписание автобусов онлайн"
     subtitle="На указанный номер телефона отправлен код подтверждения. Введите код из СМС"
     has-additional-footer>
-    <form-phone />
+    <form-client />
     <v-about />
   </v-layout>
 </template>
 
 <script>
 import VLayout from '@/components/v-layout/VLayout.vue'
-import FormPhone from '@/components/forms/form-phone/FormPhone.vue'
+import FormClient from '@/components/forms/form-phone/FormClient.vue'
 import VAbout from '@/components/blocks/v-about/VAbout.vue'
 export default {
   name: 'AccessCodePage',
   components: {
     VLayout,
-    FormPhone,
+    FormClient,
     VAbout,
   },
 }

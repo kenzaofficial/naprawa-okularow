@@ -50,7 +50,7 @@ export default {
 
 <style>
 .layout {
-  padding: 0 15px;
+  padding: 0 5px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;

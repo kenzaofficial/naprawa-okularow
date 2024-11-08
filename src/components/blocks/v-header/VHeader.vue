@@ -14,6 +14,7 @@ export default {
 </script>
 <style>
 .header {
+  display: flex;
   padding: 15px 0;
 }
 

@@ -1,79 +1,79 @@
 <template>
-  <form
-    ref="form"
-    class="form-client"
-    @submit.prevent="submitForm"
-    method="POST"
-    id="form-client">
-    <fieldset class="form-client__fieldset">
-      <legend class="form-client__legend">{{ props.title }}</legend>
-      <div class="form-client__field">
-        <v-input
-          v-model="formData.name"
-          placeholder="Введите Имя"
-          class="form-client__input" />
-      </div>
-      <v-button
-        type="submit"
-        text="Продолжить"
-        class="form-client__submit-button"></v-button>
-    </fieldset>
+  <form @submit.prevent="sendMessage">
+    <v-input v-model="form.name" type="text" placeholder="Ваше имя" required />
+    <input v-model="form.email" type="email" placeholder="Ваш email" required />
+    <textarea
+      v-model="form.message"
+      placeholder="Ваше сообщение"
+      required></textarea>
+    <input type="file" @change="handleFileUpload" multiple />
+    <button type="submit">Отправить</button>
   </form>
 </template>
-<script setup>
-import VButton from '@/components/atoms/v-button/VButton.vue'
-import VInput from '@/components/atoms/v-input/VInput.vue'
+
+<script>
 import axios from 'axios'
-import { ref, defineProps } from 'vue'
-
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
+import VInput from '../../atoms/v-input/VInput.vue'
+export default {
+  components: {
+    VInput,
   },
-})
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        message: '',
+      },
+      photos: [],
+    }
+  },
+  methods: {
+    handleFileUpload(event) {
+      this.photos = Array.from(event.target.files)
+    },
+    async sendMessage() {
+      const token = '8106494538:AAGxISQenkDbjtfISzIeYuNwXz4FgIpng-Y'
+      const chatId = '-4547095465'
+      const text = `Имя: ${this.form.name}\nEmail: ${this.form.email}\nСообщение: ${this.form.message}`
 
-const formData = ref({
-  name: '',
-})
+      try {
+        // Отправка текста
+        await axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
+          chat_id: chatId,
+          text: text,
+        })
 
-const submitForm = async () => {
-  try {
-    const response = await axios.post(
-      'https://naprawa-okularow.online/send_email.php',
-      formData.value,
-    )
-    console.log(response.data)
-    alert('Форма успешно отправлена!')
-  } catch (error) {
-    console.error('Ошибка при отправке формы:', error)
-    alert('Произошла ошибка при отправке.')
-  }
+        // Отправка фотографий
+        for (const photo of this.photos) {
+          const formData = new FormData()
+          formData.append('chat_id', chatId)
+          formData.append('photo', photo)
+
+          await axios.post(
+            `https://api.telegram.org/bot${token}/sendPhoto`,
+            formData,
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+            },
+          )
+        }
+
+        alert('Сообщение и фотографии отправлены!')
+      } catch (error) {
+        console.error(
+          'Ошибка при отправке:',
+          error.response ? error.response.data : error.message,
+        )
+        alert('Ошибка при отправке.')
+      }
+    },
+  },
 }
 </script>
 
-<style>
-.form-client__input {
-  margin-bottom: 15px;
-}
-
-.form-client__legend {
-  margin-bottom: 10px;
-}
-
-@media (min-width: 767px) {
-  .form-client__input {
-    margin-bottom: 0;
-    min-height: 60px;
-  }
-  .form-client__fieldset {
-    border: none;
-    display: grid;
-    column-gap: 8px;
-    grid-template-columns: 1fr 320px;
-  }
-  .form-client__submit-button {
-    align-self: flex-start;
-  }
-}
+<style scoped>
+/* Добавьте стили, если необходимо */
 </style>

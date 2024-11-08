@@ -1,5 +1,9 @@
 <template>
-  <input :type="type" class="input" :placeholder="placeholder" />
+  <input
+    :type="type"
+    class="input"
+    :placeholder="placeholder"
+    @input="$emit('update:modelValue', $event.target.value)" />
 </template>
 
 <script>

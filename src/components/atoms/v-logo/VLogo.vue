@@ -1,6 +1,6 @@
 <template>
   <a href="/" class="logo">
-    <img src="../../../assets/images/logo.svg" alt="logo" class="logo__image" />
+    <img src="../../../assets/images/logo.jpg" alt="logo" class="logo__image" />
   </a>
 </template>
 
@@ -17,15 +17,14 @@ export default {
 </script>
 
 <style>
-.logo__image {
-  transition: 0.3s;
+.logo {
+  flex-shrink: 0;
 }
-.logo__image:hover {
-  transform: scale(1.1);
+.logo__image {
+  height: 30px;
 }
 @media (min-width: 767px) {
   .logo__image {
-    width: 185px;
     height: 47px;
   }
 }

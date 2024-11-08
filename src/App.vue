@@ -1,11 +1,16 @@
 <template>
-  <router-view />
+  <v-layout title="naprawa okularow">
+    <form-client title="wypełnij formularz" />
+  </v-layout>
 </template>
 
 <script>
+import VLayout from './components/v-layout/VLayout.vue'
+import FormClient from './components/forms/form-client/FormClient.vue'
+
 export default {
   name: 'HomePage',
-  components: {},
+  components: { FormClient, VLayout },
 }
 </script>
 

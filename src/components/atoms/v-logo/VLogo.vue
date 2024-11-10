@@ -19,6 +19,7 @@ export default {
 <style>
 .logo {
   flex-shrink: 0;
+  flex-grow: 0;
 }
 .logo__image {
   border-radius: var(--default-radius);

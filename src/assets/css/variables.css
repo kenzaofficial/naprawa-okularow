@@ -1,11 +1,41 @@
 :root {
-  --color-black-01: #000;
-  --color-white: #fff;
-  --color-yellow-01: #e8c619;
-  --color-yellow-02: #f8f403;
-  --color-green-01: #b3df3c;
+  /* --------------------------palette-------------------------- */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-light-main: #faf7d4;
+  --color-light-transparent: #faf7d4be;
+  --color-dark-main: #202020;
+  --color-gray-01: #2d3033;
+  --color-gray-02: #d4d4d4ee;
+  --color-orange-01: #bd3c01;
+  --color-orange-02: #db4a07;
+  --color-orange-03: #7a2a04;
+  --color-blue-01: #2965be;
+  --color-blue-02: #2f73da;
+  --color-blue-03: #1d4480;
+  --color-green-01: #2e5f34;
+  --color-green-02: #4d9b56;
+  --color-green-03: #034d0b;
   --color-gray-01: #303030;
 
-  --font-main: 'Golos Text', sans-serif;
   --main-background: var(--color-gray-01);
+
+  /* --------------------------fonts-------------------------- */
+  --font-main: 'Golos Text', sans-serif;
+
+  /* --------------------------fonts-------------------------- */
+  --default-radius: 5px;
+
+  --background-success: var(--color-green-01);
+  --background-success-hover: var(--color-green-02);
+  --background-success-active: var(--color-green-03);
+  --color-warning: var(--color-orange-01);
+  --color-warning-hover: var(--color-orange-02);
+  --color-warning-active: var(--color-orange-03);
+  --background-upload-button: var(--color-blue-01);
+  --background-upload-button-hover: var(--color-blue-02);
+  --background-upload-button-active: var(--color-blue-03);
+  --color-text-light: var(--color-light-main);
+  --color-text-dark: var(--color-dark-main);
+  --background-input-text: var(--color-gray-01);
 }

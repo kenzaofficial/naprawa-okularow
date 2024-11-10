@@ -33,16 +33,17 @@ export default {
   font-weight: 600;
   padding: 15px;
   line-height: 1;
-  background: var(--color-yellow-01);
-  border-radius: 5px;
+  background-color: var(--background-success);
+  border-radius: var(--default-radius);
+  transition: 0.3s;
 }
 
 .button:hover {
-  background: var(--color-yellow-02);
+  background-color: var(--background-success-hover);
 }
 
 .button:active {
-  background: var(--color-green-01);
+  background-color: var(--background-success-active);
 }
 
 .button--wide {

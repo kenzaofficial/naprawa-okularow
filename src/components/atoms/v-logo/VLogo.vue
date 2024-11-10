@@ -1,6 +1,6 @@
 <template>
   <a href="/" class="logo">
-    <img src="../../../assets/images/logo.jpg" alt="logo" class="logo__image" />
+    <img src="../../../assets/images/logo.jpg" alt="logo" class="logo__image" height="20px" />
   </a>
 </template>
 
@@ -21,11 +21,11 @@ export default {
   flex-shrink: 0;
 }
 .logo__image {
-  height: 30px;
+  border-radius: var(--default-radius);
 }
 @media (min-width: 767px) {
   .logo__image {
-    height: 47px;
+    height: 40px;
   }
 }
 </style>

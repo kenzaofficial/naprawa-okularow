@@ -6,13 +6,19 @@
       :type="type"
       class="input__field"
       :placeholder="placeholder"
+      v-mask="type === 'tel' ? '+48 (###) ###-###' : ''"
       @input="$emit('update:modelValue', $event.target.value)" />
   </div>
 </template>
 
 <script>
+import { mask } from 'vue-the-mask'
+
 export default {
   name: 'VInput',
+  directives: {
+    mask,
+  },
   props: {
     type: String,
     placeholder: String,

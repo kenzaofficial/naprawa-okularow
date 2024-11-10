@@ -16,6 +16,13 @@
         type="email"
         placeholder="Twój e-mail"
         required />
+      <v-input
+        class="form-client__field"
+        v-model="form.phoneNumber"
+        label="Telefon"
+        type="tel"
+        placeholder="Twój numer telefonu"
+        required />
       <v-textarea
         class="form-client__field"
         v-model="form.message"
@@ -53,6 +60,7 @@ export default {
     const form = ref({
       name: '',
       email: '',
+      phoneNumber: '',
       message: '',
     })
     const photos = ref([])
@@ -116,7 +124,7 @@ export default {
   box-shadow: 0 1px 3px 1px var(--color-white);
   padding: 20px;
   border-radius: var(--default-radius);
-  background-color: var( --color-light-transparent);
+  background-color: var(--color-light-transparent);
 }
 .form-client__fieldset {
   border: none;

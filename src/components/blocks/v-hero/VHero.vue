@@ -22,7 +22,7 @@ export default {
 <style>
 .hero {
   padding: 0 0 50px;
-  background: url('../../../assets/images/hero-background.webp') center / cover
+  background: url('../../../assets/images/hero-background.jpeg') center / cover
     no-repeat;
 }
 

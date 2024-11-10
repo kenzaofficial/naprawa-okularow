@@ -6,7 +6,16 @@
       :type="type"
       class="input__field"
       :placeholder="placeholder"
+      v-if="type === 'tel'"
       v-mask="type === 'tel' ? '+48 (###) ###-###' : ''"
+      @input="$emit('update:modelValue', $event.target.value)" />
+
+    <input
+      v-else
+      id="input"
+      :type="type"
+      class="input__field"
+      :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)" />
   </div>
 </template>
@@ -42,9 +51,9 @@ export default {
   width: 100%;
   display: inline-block;
   border: none;
-  padding: 13px;
-  font-size: 14px;
-  border-radius: 2px;
+  padding: 10px;
+  font-size: 10px;
+  border-radius: var(--default-radius);
   background-color: var(--background-input-text);
   color: var(--color-light-main);
 }
@@ -52,11 +61,12 @@ export default {
   outline: 1px solid var(--color-blue-01);
 }
 .input__field::placeholder {
+  font-size: 12px;
   color: var(--color-gray-02);
 }
 @media (min-width: 767px) {
   .input__field {
-    font-size: 20px;
+    font-size: 14px;
   }
 }
 </style>

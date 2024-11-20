@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 input[type='file'] {
@@ -39,5 +40,4 @@ textarea {
   display: inline-block;
   text-decoration: none;
   color: inherit;
-  font-family: inherit;
 }

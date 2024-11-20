@@ -26,7 +26,6 @@ export default {
 
 <style>
 .button {
-  font-family: 'Golos text', sans-serif;
   display: inline-block;
   border: 0;
   font-size: 16px;

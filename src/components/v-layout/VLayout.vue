@@ -2,9 +2,7 @@
   <div class="layout">
     <v-header />
     <main class="layout__main">
-      <div class="layout__hero">
         <slot />
-      </div>
     </main>
     <v-footer />
   </div>

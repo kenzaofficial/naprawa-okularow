@@ -1,6 +1,10 @@
 <template>
   <a href="/" class="logo">
-    <img src="../../../assets/images/logo.jpg" alt="logo" class="logo__image" height="20px" />
+    <img
+      src="../../../assets/images/logo.jpg"
+      alt="logo"
+      class="logo__image"
+      height="20px" />
   </a>
 </template>
 
@@ -18,8 +22,9 @@ export default {
 
 <style>
 .logo {
+  display: inline-block;
   flex-shrink: 0;
-  flex-grow: 0;
+  max-width: 126px;
 }
 .logo__image {
   border-radius: var(--default-radius);

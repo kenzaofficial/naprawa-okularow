@@ -2,7 +2,6 @@
   <div class="hero">
     <div class="hero__text">
       <h2 class="hero__title">Naprawa wszystkich uszkodzeń okularów</h2>
-      <span class="hero__description">Tego nie naprawią u optyka!</span>
     </div>
     <v-container class="hero__container">
       <form-client title="Prośba o naprawę okularów" />
@@ -11,11 +10,12 @@
 </template>
 
 <script>
-import FormClient from '../../forms/form-client/FormClient.vue'
 import VContainer from '../../atoms/v-container/VContainer.vue'
+import FormClient from '../../forms/form-client/FormClient.vue'
+
 export default {
   name: 'VHero',
-  components: { FormClient, VContainer },
+  components: { VContainer, FormClient },
 }
 </script>
 

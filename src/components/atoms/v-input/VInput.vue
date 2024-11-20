@@ -7,7 +7,7 @@
       class="input__field"
       :placeholder="placeholder"
       v-if="type === 'tel'"
-      v-mask="type === 'tel' ? '+48 (###) ###-###' : ''"
+      v-mask="'+48 (###) ###-###'"
       @input="$emit('update:modelValue', $event.target.value)" />
 
     <input

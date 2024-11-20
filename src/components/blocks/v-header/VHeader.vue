@@ -144,6 +144,7 @@ export default {
   right: 0;
   border-bottom-left-radius: var(--default-radius);
   border-bottom-right-radius: var(--default-radius);
+  overflow: hidden;
 }
 
 .header__burger--active ~ .header__navigation::before {

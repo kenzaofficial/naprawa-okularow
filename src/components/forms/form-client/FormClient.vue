@@ -4,20 +4,6 @@
       <legend class="form-client__legend">{{ title }}</legend>
       <v-input
         class="form-client__field"
-        v-model="form.name"
-        label="Imię"
-        type="text"
-        placeholder="Twoje imię"
-        required />
-      <v-input
-        class="form-client__field"
-        v-model="form.email"
-        label="Email"
-        type="email"
-        placeholder="Twój e-mail"
-        required />
-      <v-input
-        class="form-client__field"
         v-model="form.phoneNumber"
         label="Telefon"
         type="tel"
@@ -30,7 +16,7 @@
       <file-upload
         class="form-client__field"
         @files-uploaded="handleFileUpload" />
-      <v-button type="submit" text="Wyślij aplikację" />
+      <v-button type="submit" text="Aplikuj do nas" />
     </fieldset>
   </form>
 </template>
@@ -44,6 +30,7 @@ import VButton from '../../atoms/v-button/VButton.vue'
 import FileUpload from '../../atoms/file-upload/FileUpload.vue'
 
 export default {
+  name: 'FormClient',
   components: {
     VInput,
     VTextarea,
@@ -58,8 +45,6 @@ export default {
   },
   setup() {
     const form = ref({
-      name: '',
-      email: '',
       phoneNumber: '',
       message: '',
     })
@@ -72,7 +57,7 @@ export default {
     const sendMessage = async () => {
       const token = '8106494538:AAGxISQenkDbjtfISzIeYuNwXz4FgIpng-Y'
       const chatId = '-4547095465'
-      const text = `Имя: ${form.value.name}\nEmail: ${form.value.email}\nСообщение: ${form.value.message}`
+      const text = `Сообщение: ${form.value.message}\nТелефон: ${form.value.phoneNumber}`
 
       try {
         // Отправка текста

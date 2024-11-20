@@ -1,5 +1,5 @@
 <template>
-  <div class="input">
+  <div class="input" :class="{ 'input--error': error }">
     <label class="input__label" for="input">{{ label }}</label>
     <input
       id="input"
@@ -8,7 +8,8 @@
       :placeholder="placeholder"
       v-if="type === 'tel'"
       v-mask="'+48 (###) ###-###'"
-      @input="$emit('update:modelValue', $event.target.value)" />
+      @input="$emit('update:modelValue', $event.target.value)" 
+      />
 
     <input
       v-else
@@ -17,6 +18,9 @@
       class="input__field"
       :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)" />
+
+    <!-- Сообщение об ошибке -->
+    <span v-if="error" class="input__error">{{ error }}</span>
   </div>
 </template>
 
@@ -32,13 +36,15 @@ export default {
     type: String,
     placeholder: String,
     label: String,
+    error: String,
   },
 }
 </script>
 
-<style>
+<style scoped>
 .input {
   text-align: start;
+  position: relative;
 }
 .input__label {
   display: block;
@@ -63,6 +69,36 @@ export default {
 .input__field::placeholder {
   font-size: 12px;
   color: var(--color-gray-02);
+}
+.input__error {
+  color: var(--color-error);
+  font-size: 10px;
+  margin-top: 5px;
+}
+.input--error .input__field {
+  border: 1px solid var(--color-error);
+}
+.input--error .input__label {
+  color: var(--color-error);
+}
+.input__error {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.input__error::before {
+  content: '!';
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  font-weight: 600;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 @media (min-width: 767px) {
   .input__field {

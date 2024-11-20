@@ -1,14 +1,14 @@
 <template>
-  <form @submit.prevent="sendMessage" class="form-client">
+  <form @submit.prevent="validateAndSend" class="form-client">
     <fieldset class="form-client__fieldset">
       <legend class="form-client__legend">{{ title }}</legend>
       <v-input
+        :error="error"
         class="form-client__field"
         v-model="form.phoneNumber"
         label="Telefon"
         type="tel"
-        placeholder="Twój numer telefonu"
-        required />
+        placeholder="Twój numer telefonu" />
       <v-textarea
         class="form-client__field"
         v-model="form.message"
@@ -49,15 +49,34 @@ export default {
       message: '',
     })
     const photos = ref([])
+    const error = ref('') // Реактивное свойство для ошибки
 
     const handleFileUpload = (files) => {
       photos.value = files
     }
 
+    const validateAndSend = () => {
+      if (!form.value.phoneNumber.trim()) {
+        error.value = 'pole jest wymagane'
+        return
+      }
+
+      // Проверка длины номера телефона
+      if (form.value.phoneNumber.trim().length !== 17) {
+        error.value = 'Numer telefonu musi mieć dokładnie 11 cyfr'
+        return
+      }
+
+      // Очистка ошибки перед отправкой
+      error.value = ''
+
+      sendMessage()
+    }
+
     const sendMessage = async () => {
       const token = '8106494538:AAGxISQenkDbjtfISzIeYuNwXz4FgIpng-Y'
       const chatId = '-4547095465'
-      const text = `Сообщение: ${form.value.message}\nТелефон: ${form.value.phoneNumber}`
+      const text = `Телефон: ${form.value.phoneNumber}\nСообщение: ${form.value.message}`
 
       try {
         // Отправка текста
@@ -92,11 +111,13 @@ export default {
         alert('Ошибка при отправке.')
       }
     }
+
     return {
       form,
       photos,
+      error, // Возвращаем реактивное свойство
       handleFileUpload,
-      sendMessage,
+      validateAndSend,
     }
   },
 }

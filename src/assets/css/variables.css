@@ -4,6 +4,7 @@
   --color-white: #ffffff;
   --color-light-main: #faf7d4;
   --color-light-transparent: #faf7d4be;
+  --color-red-01: #9b0000;
   --color-dark-main: #202020;
   --color-gray-01: #2d3033;
   --color-gray-02: #d4d4d4ee;
@@ -38,4 +39,5 @@
   --color-text-light: var(--color-light-main);
   --color-text-dark: var(--color-dark-main);
   --background-input-text: var(--color-gray-01);
+  --color-error: var(--color-red-01);
 }

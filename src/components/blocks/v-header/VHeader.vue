@@ -65,7 +65,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 10px 0;
-  background-color: #faef8a;
+  background-color: var(--bg-primary);
   position: relative;
   z-index: 10;
 }
@@ -95,7 +95,7 @@ export default {
   width: 100%;
   height: 3px;
   border-radius: var(--default-radius);
-  background-color: var(--color-dark-main);
+  background-color: var(--bg-secondary);
   transition: 0.3s;
 }
 
@@ -106,7 +106,7 @@ export default {
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: var(--color-dark-main);
+  background-color: var(--bg-secondary);
   z-index: 10;
   transition: 0.3s;
   border-radius: var(--default-radius);
@@ -154,7 +154,7 @@ export default {
   right: 0;
   height: 40px;
   width: 100%;
-  background-color: var(--color-blue-01);
+  background-color: var(--bg-tertiary);
   z-index: 2;
 }
 
@@ -169,7 +169,7 @@ export default {
 .header__menu-item {
   font-size: 14px;
   padding: 10px;
-  box-shadow: inset 0 -2px 4px 1px #0000004d;
+  box-shadow: inset 0 -2px 4px 1px  var(--bg-secondary);
 }
 
 @media (min-width: 767px) {

@@ -57,7 +57,6 @@ export default {
   font-size: 12px;
   padding-left: 30px;
   line-height: 1;
-  color: var(--color-gray-02);
 }
 .premium__benefits-item:not(:last-child) {
   margin-bottom: 10px;
@@ -70,7 +69,7 @@ export default {
   transform: rotate(45deg);
   width: 10px;
   height: 13px;
-  border: solid var(--color-green-03);
+  border: solid var(--background-success);
   border-width: 0 2px 2px 0;
   transition: 0.2s;
 }

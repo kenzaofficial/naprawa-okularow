@@ -19,7 +19,6 @@
       :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)" />
 
-    <!-- Сообщение об ошибке -->
     <span v-if="error" class="input__error">{{ error }}</span>
   </div>
 </template>
@@ -51,7 +50,7 @@ export default {
   padding-left: 5px;
   margin-bottom: 2px;
   font-size: 12px;
-  color: var(--color-black);
+  color: var(--text-secondary);
 }
 .input__field {
   width: 100%;
@@ -61,14 +60,14 @@ export default {
   font-size: 10px;
   border-radius: var(--default-radius);
   background-color: var(--background-input-text);
-  color: var(--color-light-main);
+  color: var(--text-primary);
 }
 .input__field:focus-within {
-  outline: 1px solid var(--color-blue-01);
+  outline: 1px solid var(--bg-tertiary);
 }
 .input__field::placeholder {
   font-size: 12px;
-  color: var(--color-gray-02);
+  color: var(--text-primary);
 }
 .input__error {
   color: var(--color-error);

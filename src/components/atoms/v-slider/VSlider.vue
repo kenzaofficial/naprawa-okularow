@@ -29,7 +29,7 @@ const images = ref([
 
 <style>
 .slider {
-  background-color: rgb(39, 39, 39);
+  background-color: var(--bg-secondary);
   padding: 20px;
 }
 .slider img {

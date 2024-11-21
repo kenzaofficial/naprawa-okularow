@@ -3,11 +3,13 @@
     <slot></slot>
   </div>
 </template>
+
 <script>
 export default {
   name: 'VContainer',
 }
 </script>
+
 <style>
 .container {
   width: 100%;

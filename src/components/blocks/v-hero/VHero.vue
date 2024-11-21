@@ -37,7 +37,7 @@ export default {
   padding: 20px;
   margin-bottom: 20px;
   width: 100%;
-  background-color: #313131cc;
+  background-color: var(--bg-secondary-opacity);
 }
 
 .hero__description {

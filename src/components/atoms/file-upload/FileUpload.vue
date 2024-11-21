@@ -58,7 +58,6 @@ export default {
   width: 100%;
   display: inline-block;
   background-color: var(--background-upload-button);
-  color: var(--color-white);
   padding: 10px 20px;
   cursor: pointer;
   border-radius: var(--default-radius);

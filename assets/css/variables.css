@@ -6,10 +6,11 @@
   --bg-primary-opacity: #faf7d4be;
   --bg-secondary: #333;
   --bg-secondary-opacity: #313131cc;
-  --bg-tertiary: blue;
+  --bg-tertiary: #585646;
   --text-primary: #faf7d4;
   --text-secondary: #202020;
   --color-error: #9b0000;
+  --color-primary: #e73600;
   --background-upload-button: #2965be;
   --background-upload-button-hover: #2f73da;
   --background-upload-button-active: #1d4480;

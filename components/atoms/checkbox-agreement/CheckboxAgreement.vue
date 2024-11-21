@@ -1,22 +1,25 @@
 <template>
   <div class="checkbox-agreement">
-    <input type="checkbox" name="checkbox-agreement" id="agreement" />
+    <input type="checkbox" id="agreement" v-model="isChecked" />
     <label for="agreement" class="checkbox-agreement__text">
       {{ text }}
     </label>
   </div>
 </template>
-<script>
-export default {
-  name: 'CheckboxAgreement',
-  props: {
-    text: {
-      type: String,
-      default: 'default agreement text',
-    },
+
+<script setup>
+import { ref } from 'vue';
+
+const props = defineProps({
+  text: {
+    type: String,
+    default: 'default agreement text',
   },
-}
+});
+
+const isChecked = ref(false);  // для отслеживания состояния чекбокса
 </script>
+
 <style>
 .checkbox-agreement {
   margin-top: 20px;
@@ -24,9 +27,11 @@ export default {
   font-size: 10px;
   color: var(--background-success);
 }
+
 .checkbox-agreement input[type='checkbox'] {
   display: none;
 }
+
 .checkbox-agreement__text {
   position: relative;
   padding-left: 25px;

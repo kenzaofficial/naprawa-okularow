@@ -7,7 +7,7 @@
   font-family: inherit;
 }
 
-input[type='file'] {
+input[type="file"] {
   display: none;
 }
 
@@ -16,11 +16,16 @@ img {
   width: 100%;
 }
 
+body,
 html,
-body {
+#__nuxt {
   height: 100%;
   margin: 0;
-  color: var(--color-white);
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-primary);
 }
 
 ul,
@@ -29,15 +34,15 @@ ol {
 }
 
 button {
-  color: var(--color-white);
   cursor: pointer;
   background-color: transparent;
   border: none;
+  color: inherit;
 }
 
 a,
 textarea {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color:inherit;
 }

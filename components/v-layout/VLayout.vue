@@ -2,27 +2,28 @@
   <div class="layout">
     <v-header />
     <main class="layout__main">
-        <slot />
+      <slot />
     </main>
     <v-footer />
   </div>
 </template>
 
 <script>
-import VHeader from '@/components/blocks/v-header/VHeader.vue'
-import VFooter from '@/components/blocks/v-footer/VFooter.vue'
+import VHeader from "@/components/blocks/v-header/VHeader.vue";
+import VFooter from "@/components/blocks/v-footer/VFooter.vue";
 
 export default {
-  name: 'VLayout',
+  name: "VLayout",
   components: { VHeader, VFooter },
-}
+};
 </script>
 
 <style>
 .layout {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  text-align: center;
+  min-height: 100%;
 }
 
 .layout__title {

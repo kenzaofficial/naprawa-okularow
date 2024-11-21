@@ -8,45 +8,37 @@
       <div
         v-for="(file, index) in filePreviews"
         :key="index"
-        class="file-upload__preview">
+        class="file-upload__preview"
+      >
         <img
           v-if="file.type.startsWith('image/')"
           :src="file.url"
-          :alt="file.name" />
+          :alt="file.name"
+        />
         <p>{{ file.name }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import { ref, onBeforeUnmount } from 'vue'
+<script setup>
+import { ref, onBeforeUnmount } from "vue";
+const emit = defineEmits();
+const filePreviews = ref([]);
 
-export default {
-  name: 'FileUpload',
-  setup(_, { emit }) {
-    const filePreviews = ref([])
+const onFileChange = (event) => {
+  const files = Array.from(event.target.files);
+  filePreviews.value = files.map((file) => ({
+    name: file.name,
+    type: file.type,
+    url: URL.createObjectURL(file),
+  }));
+  emit("files-uploaded", files);
+};
 
-    const onFileChange = (event) => {
-      const files = Array.from(event.target.files)
-      filePreviews.value = files.map((file) => ({
-        name: file.name,
-        type: file.type,
-        url: URL.createObjectURL(file),
-      }))
-      emit('files-uploaded', files)
-    }
-
-    onBeforeUnmount(() => {
-      filePreviews.value.forEach((file) => URL.revokeObjectURL(file.url))
-    })
-
-    return {
-      filePreviews,
-      onFileChange,
-    }
-  },
-}
+onBeforeUnmount(() => {
+  filePreviews.value.forEach((file) => URL.revokeObjectURL(file.url));
+});
 </script>
 
 <style scoped>
@@ -69,6 +61,7 @@ export default {
 .file-upload__button:hover {
   background-color: var(--background-upload-button-hover);
 }
+
 .file-upload__button:active {
   background-color: var(--background-upload-button-active);
 }

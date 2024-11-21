@@ -131,7 +131,7 @@ export default {
 }
 
 .header__navigation {
-  background-color: rgb(255, 243, 172);
+  background-color: var(--bg-tertiary);
   position: absolute;
   right: 100%;
   width: 100%;
@@ -154,7 +154,7 @@ export default {
   right: 0;
   height: 40px;
   width: 100%;
-  background-color: var(--bg-tertiary);
+  background-color: var(--color-primary);
   z-index: 2;
 }
 
@@ -163,13 +163,13 @@ export default {
   margin: 0;
   padding: 0;
   text-align: start;
-  color: black;
 }
 
 .header__menu-item {
   font-size: 14px;
   padding: 10px;
   box-shadow: inset 0 -2px 4px 1px  var(--bg-secondary);
+  color: #fff;
 }
 
 @media (min-width: 767px) {

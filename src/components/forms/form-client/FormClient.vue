@@ -57,7 +57,7 @@ export default {
 
     const validateAndSend = () => {
       if (!form.value.phoneNumber.trim()) {
-        error.value = 'pole jest wymagane'
+        error.value = 'Pole jest wymagane'
         return
       }
       // Проверка длины номера телефона

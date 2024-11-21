@@ -22,9 +22,9 @@ export default {
   text-align: center;
   display: flex;
   flex-direction: column;
-  color: var(--color-text-light);
+  color: var(--text-primary);
   min-height: 100vh;
-  background-color: var(--main-background);
+  background-color: var(--body);
   margin: 0 auto;
 }
 </style>

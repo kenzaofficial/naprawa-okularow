@@ -29,16 +29,19 @@ export default {
   overflow-x: hidden;
   resize: vertical;
 }
+.textarea__field:focus-within {
+  outline: 1px solid var(--bg-tertiary);
+}
 .textarea__label {
   display: block;
   text-align: left;
   padding-left: 5px;
   margin-bottom: 2px;
   font-size: 12px;
-  color: var(--color-black);
+  color: var(--text-secondary);
 }
 .textarea__field::placeholder {
-  color: var(--color-gray-02);
+  color: var(--text-primary);
 }
 @media (min-width: 767px) {
   .textarea {

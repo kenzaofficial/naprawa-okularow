@@ -22,7 +22,7 @@ export default {
   margin-top: 20px;
   display: flex;
   font-size: 10px;
-  color: var(--color-gray-01);
+  color: var(--background-success);
 }
 .checkbox-agreement input[type='checkbox'] {
   display: none;
@@ -40,7 +40,7 @@ export default {
   left: 0;
   width: 12px;
   height: 12px;
-  background-color: var(--color-light-gray-01);
+  background-color: var(--bg-tertiary);
 }
 
 .checkbox-agreement__text::after {
@@ -51,7 +51,7 @@ export default {
   transform: rotate(45deg);
   width: 6px;
   height: 9px;
-  border: solid var(--color-green-03);
+  border: solid var(--background-success);
   border-width: 0 1px 1px 0;
   opacity: 0;
   transition: 0.2s;

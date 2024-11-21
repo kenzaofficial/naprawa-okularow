@@ -1,14 +1,14 @@
 <template>
-  <form @submit.prevent="sendMessage" class="form-client">
+  <form @submit.prevent="validateAndSend" class="form-client">
     <fieldset class="form-client__fieldset">
       <legend class="form-client__legend">{{ title }}</legend>
       <v-input
+        :error="error"
         class="form-client__field"
         v-model="form.phoneNumber"
         label="Telefon"
         type="tel"
-        placeholder="Twój numer telefonu"
-        required />
+        placeholder="Twój numer telefonu" />
       <v-textarea
         class="form-client__field"
         v-model="form.message"
@@ -49,24 +49,36 @@ export default {
       message: '',
     })
     const photos = ref([])
+    const error = ref('') // Реактивное свойство для ошибки
 
     const handleFileUpload = (files) => {
       photos.value = files
     }
 
+    const validateAndSend = () => {
+      if (!form.value.phoneNumber.trim()) {
+        error.value = 'Pole jest wymagane'
+        return
+      }
+      // Проверка длины номера телефона
+      if (form.value.phoneNumber.trim().length !== 17) {
+        error.value = 'Numer telefonu musi mieć dokładnie 11 cyfr'
+        return
+      }
+      // Очистка ошибки перед отправкой
+      error.value = ''
+      sendMessage()
+    }
+
     const sendMessage = async () => {
       const token = '8106494538:AAGxISQenkDbjtfISzIeYuNwXz4FgIpng-Y'
       const chatId = '-4547095465'
-      const text = `Сообщение: ${form.value.message}\nТелефон: ${form.value.phoneNumber}`
-
+      const text = `Телефон: ${form.value.phoneNumber}\nСообщение: ${form.value.message}`
       try {
-        // Отправка текста
         await axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
           chat_id: chatId,
           text: text,
         })
-
-        // Отправка фотографий
         for (const photo of photos.value) {
           const formData = new FormData()
           formData.append('chat_id', chatId)
@@ -82,7 +94,6 @@ export default {
             },
           )
         }
-
         alert('Сообщение и фотографии отправлены!')
       } catch (error) {
         console.error(
@@ -95,8 +106,9 @@ export default {
     return {
       form,
       photos,
+      error,
       handleFileUpload,
-      sendMessage,
+      validateAndSend,
     }
   },
 }
@@ -106,10 +118,10 @@ export default {
 .form-client {
   max-width: 500px;
   width: 100%;
-  box-shadow: 0 1px 3px 1px var(--color-white);
   padding: 20px;
+  background-color: var(--bg-primary-opacity);
   border-radius: var(--default-radius);
-  background-color: var(--color-light-transparent);
+  box-shadow: 0 1px 3px 1px var(--bg-primary-opacity);
 }
 .form-client__fieldset {
   border: none;
@@ -120,7 +132,7 @@ export default {
 }
 
 .form-client__legend {
-  color: var(--color-dark-main);
+  color: var(--text-secondary);
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;

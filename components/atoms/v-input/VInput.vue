@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import VueTheMask from "vue-the-mask";
 
 export default {
   name: "VInput",

@@ -49,21 +49,26 @@ onBeforeUnmount(() => {
 .file-upload__button {
   width: 100%;
   display: inline-block;
-  background-color: var(--background-upload-button);
+  color: var(--color-primary);
   padding: 10px 20px;
   cursor: pointer;
+  background-color: var(--bg-secondary);
   border-radius: var(--default-radius);
   font-size: 16px;
   text-align: center;
   transition: background-color 0.3s;
+  box-shadow: inset 0 0 3px 1px var(--color-tertiary);
 }
 
 .file-upload__button:hover {
-  background-color: var(--background-upload-button-hover);
+  color: var(--text-secondary);
+  background-color: var(--color-tertiary);
 }
 
 .file-upload__button:active {
-  background-color: var(--background-upload-button-active);
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  box-shadow: none;
 }
 
 .file-upload__previews {

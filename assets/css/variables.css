@@ -1,27 +1,30 @@
 :root {
   /* --------------------------palette-------------------------- */
 
-  --body: #2d3033;
-  --bg-primary: #faef8a;
-  --bg-primary-opacity: #faf7d4be;
-  --bg-secondary: #333;
+  --body: #141414;
+  --bg-primary: #191919;
+  --bg-primary-opacity: #191919f8;
+  --bg-secondary: #0f0f0f;
   --bg-secondary-opacity: #313131cc;
   --bg-tertiary: #585646;
-  --text-primary: #faf7d4;
+  --text-primary: #fff;
+  --text-primary-opacity: #ffffff71;
   --text-secondary: #202020;
   --color-error: #9b0000;
-  --color-primary: #e73600;
+  --color-primary: #34c759;
+  --color-primary-intense: #003606;
+  --color-primary: #8aff80db;
+  --color-secondary: #e73600;
+  --color-tertiary: #fde616;
   --background-upload-button: #2965be;
-  --background-upload-button-hover: #2f73da;
-  --background-upload-button-active: #1d4480;
-  --background-success: #2e5f34;
-  --background-success-hover: #4d9b56;
-  --background-success-active: #034d0b;
-  --background-input-text: #303030;
 
   /* --------------------------fonts-------------------------- */
-  --font-main: 'Golos Text', sans-serif;
+  --font-main: "Golos Text", sans-serif;
 
   /* --------------------------fonts-------------------------- */
   --default-radius: 5px;
+
+  /* --------------------------gradients-------------------------- */
+
+  --base-gradient-01: linear-gradient(90deg, #252525fa 10%, #070707fa 80%);
 }

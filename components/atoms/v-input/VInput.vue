@@ -8,8 +8,8 @@
       :placeholder="placeholder"
       v-if="type === 'tel'"
       v-mask="'+48 (###) ###-###'"
-      @input="$emit('update:modelValue', $event.target.value)" 
-      />
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
 
     <input
       v-else
@@ -17,17 +17,18 @@
       :type="type"
       class="input__field"
       :placeholder="placeholder"
-      @input="$emit('update:modelValue', $event.target.value)" />
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
 
     <span v-if="error" class="input__error">{{ error }}</span>
   </div>
 </template>
 
 <script>
-import { mask } from 'vue-the-mask'
+import { mask } from "vue-the-mask";
 
 export default {
-  name: 'VInput',
+  name: "VInput",
   directives: {
     mask,
   },
@@ -37,7 +38,7 @@ export default {
     label: String,
     error: String,
   },
-}
+};
 </script>
 
 <style scoped>
@@ -50,7 +51,6 @@ export default {
   padding-left: 5px;
   margin-bottom: 2px;
   font-size: 12px;
-  color: var(--text-secondary);
 }
 .input__field {
   width: 100%;
@@ -58,16 +58,21 @@ export default {
   border: none;
   padding: 10px;
   font-size: 10px;
+  border: 1px solid var(--text-primary);
   border-radius: var(--default-radius);
-  background-color: var(--background-input-text);
+  background-color: transparent;
   color: var(--text-primary);
 }
 .input__field:focus-within {
-  outline: 1px solid var(--bg-tertiary);
+  border-color: var(--color-primary);
+  outline: none;
+}
+.input:focus-within .input__label {
+  color: var(--color-primary);
 }
 .input__field::placeholder {
   font-size: 12px;
-  color: var(--text-primary);
+  color: var(--text-primary-opacity);
 }
 .input__error {
   color: var(--color-error);
@@ -87,7 +92,7 @@ export default {
   gap: 2px;
 }
 .input__error::before {
-  content: '!';
+  content: "!";
   color: var(--color-error);
   border: 1px solid var(--color-error);
   font-weight: 600;

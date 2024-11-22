@@ -121,7 +121,7 @@ export default {
   padding: 20px;
   background-color: var(--bg-primary-opacity);
   border-radius: var(--default-radius);
-  box-shadow: 0 1px 3px 1px var(--bg-primary-opacity);
+  box-shadow: 0 0 5px 2px var(--color-primary);
 }
 .form-client__fieldset {
   border: none;
@@ -132,7 +132,6 @@ export default {
 }
 
 .form-client__legend {
-  color: var(--text-secondary);
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;

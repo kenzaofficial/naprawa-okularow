@@ -5,32 +5,38 @@
       id="textarea"
       class="textarea__field"
       :placeholder="placeholder"
-      @input="$emit('update:modelValue', $event.target.value)" />
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'VTextarea',
+  name: "VTextarea",
   props: {
     placeholder: String,
   },
-}
+};
 </script>
 
 <style>
 .textarea__field {
   width: 100%;
   display: inline-block;
-  padding: 13px;
+  padding: 10px;
   font-size: 14px;
+  border: 1px solid var(--text-primary);
   background-color: var(--background-input-text);
   border-radius: var(--default-radius);
   overflow-x: hidden;
   resize: vertical;
 }
 .textarea__field:focus-within {
-  outline: 1px solid var(--bg-tertiary);
+  border-color: var(--color-primary);
+  outline: none;
+}
+.textarea:focus-within .textarea__label {
+  color: var(--color-primary);
 }
 .textarea__label {
   display: block;
@@ -38,10 +44,10 @@ export default {
   padding-left: 5px;
   margin-bottom: 2px;
   font-size: 12px;
-  color: var(--text-secondary);
 }
 .textarea__field::placeholder {
-  color: var(--text-primary);
+  font-size: 12px;
+  color: var(--text-primary-opacity);
 }
 @media (min-width: 767px) {
   .textarea {

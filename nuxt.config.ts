@@ -6,4 +6,5 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: false },
   plugins: ["~/plugins/vue-the-mask.js"],
+  compatibilityDate: "2024-11-22",
 });

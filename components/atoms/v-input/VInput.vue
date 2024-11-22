@@ -25,9 +25,13 @@
 </template>
 
 <script>
+import VueTheMask from "vue-the-mask";
 
 export default {
   name: "VInput",
+  directives: {
+    mask: VueTheMask.mask,
+  },
   props: {
     type: String,
     placeholder: String,

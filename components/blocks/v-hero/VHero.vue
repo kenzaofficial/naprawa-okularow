@@ -10,19 +10,19 @@
 </template>
 
 <script>
-import VContainer from '../../atoms/v-container/VContainer.vue'
-import FormClient from '../../forms/form-client/FormClient.vue'
+import VContainer from "@/components/atoms/v-container/VContainer.vue";
+import FormClient from "@/components/forms/form-client/FormClient.vue";
 
 export default {
-  name: 'VHero',
+  name: "VHero",
   components: { VContainer, FormClient },
-}
+};
 </script>
 
-<style>
+<style scoped>
 .hero {
   padding: 100px 0 50px;
-  background: url('../../../assets/images/hero-background.jpeg') center / cover
+  background:var(--body) url("@/assets/images/hero-background.jpeg") center / cover
     no-repeat;
 }
 
@@ -38,6 +38,13 @@ export default {
   margin-bottom: 20px;
   width: 100%;
   background-color: var(--bg-secondary-opacity);
+  text-align: center;
+}
+
+.hero__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .hero__description {
@@ -46,5 +53,19 @@ export default {
   width: 100%;
   font-size: 10px;
   text-align: right;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 50px 0 30px;
+  }
+
+  .hero__title {
+    font-size: 18px;
+  }
+
+  .hero__description {
+    font-size: 8px;
+  }
 }
 </style>

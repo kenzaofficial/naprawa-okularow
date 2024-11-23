@@ -44,7 +44,6 @@ export default {
 <style scoped>
 .input {
   text-align: start;
-  position: relative;
 }
 .input__label {
   display: block;

@@ -1,27 +1,21 @@
 <template>
   <a href="/" class="logo">
     <img
-      src="../../../assets/images/logo.jpg"
+      src="@/assets/images/logo.jpg"
       alt="logo"
       class="logo__image"
-      height="20px"
+      height="30px"
     />
   </a>
 </template>
 
-<script>
-export default {
+<script setup>
+defineOptions({
   name: "VLogo",
-  props: {
-    buttonText: {
-      type: String,
-      default: "buttonText",
-    },
-  },
-};
+});
 </script>
 
-<style>
+<style scoped>
 .logo {
   display: inline-block;
   flex-shrink: 0;

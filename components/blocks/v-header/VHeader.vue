@@ -10,10 +10,12 @@
       >
         <span class="header__burger-line"></span>
       </button>
-      <nav class="header__navigation">
+      <nav
+        class="header__navigation"
+        :class="{ 'header__navigation--active': isMenuOpen }"
+      >
         <ul class="header__menu-list">
           <li
-            cl
             v-for="(menuItem, index) in menuItems"
             :key="index"
             class="header__menu-item"
@@ -24,55 +26,74 @@
           </li>
         </ul>
       </nav>
-      <a class="header__contact-link" href="tel:+48881554779"
-        >+48 (815) 547-79</a
+      <a class="header__contact-link" href="tel:+48881554779">
+        +48 (815) 547-79</a
       >
+      <ul class="header__social-list">
+        <li
+          v-for="(social, index) in socials"
+          :key="index"
+          class="header__social-item"
+        >
+          <a class="header__social-link" :href="social.href" target="_blank">
+            <img :src="social.icon" :alt="social.alt" width="20" />
+          </a>
+        </li>
+      </ul>
     </v-container>
   </header>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 import VLogo from "@/components/atoms/v-logo/VLogo.vue";
-import VContainer from "../../atoms/v-container/VContainer.vue";
+import VContainer from "@/components/atoms/v-container/VContainer.vue";
 
-export default {
-  name: "VHeader",
-  components: {
-    VLogo,
-    VContainer,
+const menuItems = ref([
+  { link: "Prośba", href: "#form-client" },
+  { link: "Kontakty", href: "#contacts" },
+  { link: "Usługi", href: "#services" },
+  { link: "Galeria", href: "#gallery" },
+]);
+
+const socials = ref([
+  {
+    href: "https://www.facebook.com/share/1H7LsA1kHv/?mibextid=LQQJ4d",
+    icon: "/icons/facebook.svg",
+    alt: "facebook",
   },
-  setup() {
-    const menuItems = ref([
-      { link: "Prośba", href: "#form-client" },
-      { link: "Kontakty", href: "#contacts" },
-      { link: "Usługi", href: "#services" },
-      { link: "Galeria", href: "#gallery" },
-    ]);
-
-    const isMenuOpen = ref(false);
-
-    const toggleMenu = () => {
-      isMenuOpen.value = !isMenuOpen.value;
-    };
-
-    return {
-      menuItems,
-      isMenuOpen,
-      toggleMenu,
-    };
+  {
+    href: "https://www.instagram.com/naprawa_okularow?igsh=b2ljbmZrNTRxOHNv",
+    icon: "/icons/instagram.svg",
+    alt: "instagram",
   },
+  {
+    href: "https://wa.me/+48881554779",
+    icon: "/icons/whatsapp.svg",
+    alt: "whatsapp",
+  },
+  {
+    href: "https://t.me/naprawa_okularow",
+    icon: "/icons/telegram.svg",
+    alt: "telegram",
+  },
+]);
+
+const isMenuOpen = ref(false);
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
 };
 </script>
 
-<style scoped>
+<style>
 .header {
   position: fixed;
   display: flex;
   width: 100%;
+  min-height: 42px;
   align-items: center;
   border-bottom: 2px solid #ffffff1a;
-  /* padding: 10px 0; */
   background: var(--base-gradient-01);
 }
 
@@ -80,7 +101,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  column-gap: 20px;
+  column-gap: 10px;
 }
 
 .header__burger {
@@ -91,7 +112,6 @@ export default {
   order: 2;
   background: none;
   border: none;
-  margin-left: auto;
   cursor: pointer;
   padding: 0;
   width: 25px;
@@ -127,7 +147,7 @@ export default {
   bottom: 0;
 }
 
-.header__burger--active.header__burger::before {
+.header__burger--active::before {
   transform: rotate(45deg) translate(5px, 5px);
 }
 
@@ -135,7 +155,7 @@ export default {
   opacity: 0;
 }
 
-.header__burger--active.header__burger::after {
+.header__burger--active::after {
   transform: rotate(-45deg) translate(4px, -4px);
 }
 
@@ -149,22 +169,12 @@ export default {
   transition: 0.3s;
 }
 
-.header__burger--active ~ .header__navigation {
+.header__navigation--active {
   padding-top: 40px;
   top: 0;
   border-bottom-left-radius: var(--default-radius);
   border-bottom-right-radius: var(--default-radius);
   overflow: hidden;
-}
-
-.header__burger--active ~ .header__navigation::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  right: 0;
-  width: 100%;
-  background-color: var(--base-gradient-01);
-  height: 40px;
 }
 
 .header__menu-list {
@@ -190,22 +200,43 @@ export default {
   border-bottom: 2px solid var(--color-primary);
 }
 
-.header__contact-link {
+.header__social-list {
+  display: flex;
+  align-items: center;
   order: 1;
-  color: var(--color-primary);
-  transition: 0.3s;
-  padding: 10px;
+  gap: 10px;
 }
-.header__contact-link:hover {
+.header__contact-link {
+  color: var(--color-primary);
+  font-size: 10px;
+  transition: 0.3s;
+}
+.header__social-link {
+  display: block;
+  transition: 0.3s;
+}
+.header__contact-link,
+.header__social-link:hover {
   transform: scale(1.1);
+}
+@media (min-width: 400px) {
+  .header__social-list {
+    gap: 15px;
+  }
+  .header__contact-link {
+    font-size: 16px;
+  }
+  .header__social-link img {
+    width: 25px;
+  }
 }
 @media (min-width: 767px) {
   .header__burger {
-    display: none; /* <-- скрываю бургер-меню на больших экранах */
+    display: none;
   }
   .header__navigation {
-    display: flex; /* <-- делаю меню видимым на больших экранах */
-    background-color: transparent; /* <-- убираю цвет */
+    display: flex;
+    background-color: transparent;
     position: static;
     width: auto;
     max-width: none;
@@ -216,8 +247,6 @@ export default {
     flex-wrap: wrap;
     border-bottom: none;
   }
-  .header__contact-link {
-    display: block;
-  }
+
 }
 </style>

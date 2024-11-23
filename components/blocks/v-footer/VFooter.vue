@@ -1,40 +1,31 @@
 <template>
   <footer class="footer">
-      <v-logo />
-      <ul class="footer__list">
-        <li class="footer__item" v-for="(item, index) in items" :key="index">
-          <a class="footer__link" :href="item.href">{{ item.text }}</a>
-        </li>
-      </ul>
+    <v-logo />
+    <ul class="footer__list">
+      <li class="footer__item" v-for="(item, index) in items" :key="index">
+        <a class="footer__link" :href="item.href">{{ item.text }}</a>
+      </li>
+    </ul>
   </footer>
 </template>
 
-<script>
-import VLogo from '@/components/atoms/v-logo/VLogo.vue'
-export default {
-  name: 'VFooter',
-  components: {
-    VLogo,
+<script setup>
+import VLogo from "@/components/atoms/v-logo/VLogo.vue";
+
+defineProps({
+  items: {
+    type: Array,
+    default: () => [
+      { text: "Тарифы", href: "/tariff" },
+      { text: "Полититика конфидециальности", href: "#" },
+      { text: "Способы оплаты", href: "/paymethod" },
+      { text: "Пользовательское соглашение", href: "#" },
+    ],
   },
-  props: {
-    items: {
-      type: Array,
-      default: () => [
-        { text: 'Тарифы', href: '/tariff' },
-        { text: 'Полититика конфидециальности', href: '#' },
-        { text: 'Способы оплаты', href: '/paymethod' },
-        { text: 'Пользовательское соглашение', href: '#' },
-      ],
-    },
-    hasAdditionalInfo: {
-      type: Boolean,
-      default: false,
-    },
-  },
-}
+});
 </script>
 
-<style>
+<style scoped>
 .footer {
   padding: 20px 0;
 }

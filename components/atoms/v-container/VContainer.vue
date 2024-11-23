@@ -4,10 +4,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'VContainer',
-}
+<script setup>
+defineOptions({
+  name: "VContainer",
+});
 </script>
 
 <style>
@@ -16,5 +16,10 @@ export default {
   margin: 0 auto;
   padding: 0 10px;
   max-width: 1200px;
+}
+@media (min-width: 767px) {
+  .container {
+    padding: 0 20px;
+  }
 }
 </style>

@@ -4,24 +4,23 @@
   </button>
 </template>
 
-<script>
-export default {
-  name: 'VButton',
-  props: {
-    isWide: {
-      type: Boolean,
-      default: true,
-    },
-    text: {
-      type: String,
-      default: 'buttonText',
-    },
-    type: {
-      type: String,
-      default: 'button',
-    },
+<script setup>
+
+defineProps({
+  isWide: {
+    type: Boolean,
+    default: true,
   },
-}
+  text: {
+    type: String,
+    default: "buttonText",
+  },
+  type: {
+    type: String,
+    default: "button",
+  },
+});
+
 </script>
 
 <style>

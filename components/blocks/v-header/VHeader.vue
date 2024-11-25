@@ -27,6 +27,7 @@
         </ul>
       </nav>
       <a class="header__contact-link" href="tel:+48881554779">
+        <img src="@/public/icons/telefon.svg" alt="telefon" width="10" />
         +48 (815) 547-79</a
       >
       <ul class="header__social-list">
@@ -88,7 +89,8 @@ const toggleMenu = () => {
 
 <style>
 .header {
-  position: fixed;
+  position: sticky;
+  top: 0;
   display: flex;
   width: 100%;
   min-height: 42px;
@@ -207,6 +209,9 @@ const toggleMenu = () => {
   gap: 10px;
 }
 .header__contact-link {
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
   color: var(--color-primary);
   font-size: 10px;
   transition: 0.3s;
@@ -215,16 +220,17 @@ const toggleMenu = () => {
   display: block;
   transition: 0.3s;
 }
-.header__contact-link,
-.header__social-link:hover {
-  transform: scale(1.1);
-}
+
 @media (min-width: 400px) {
   .header__social-list {
     gap: 15px;
   }
   .header__contact-link {
-    font-size: 16px;
+    column-gap: 5px;
+    font-size: 14px;
+  }
+  .header__contact-link img {
+    width: 15px;
   }
   .header__social-link img {
     width: 25px;
@@ -247,6 +253,12 @@ const toggleMenu = () => {
     flex-wrap: wrap;
     border-bottom: none;
   }
-
+  .header__contact-link {
+    font-size: 16px;
+  }
+  .header__contact-link:hover,
+  .header__social-link:hover {
+    transform: scale(1.1);
+  }
 }
 </style>

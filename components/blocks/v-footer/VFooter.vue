@@ -92,7 +92,7 @@ const currentYear = computed(() => new Date().getFullYear());
 }
 
 .footer__address-link {
-  font-size: 10px;
+  font-size: 12px;
   transition: 0.3s;
 }
 .footer__contacts {
@@ -143,7 +143,7 @@ const currentYear = computed(() => new Date().getFullYear());
   column-gap: 3px;
 }
 .footer__copyright {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--color-secondary);
 }
 

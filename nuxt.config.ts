@@ -4,8 +4,10 @@ export default defineNuxtConfig({
     "~/assets/css/variables.css",
     "~/assets/css/fonts.css",
   ],
+
   devtools: { enabled: false },
   plugins: ["~/plugins/vue-the-mask.js"],
+
   app: {
     head: {
       title: "Naprawa okularów Wrcolaw",
@@ -35,4 +37,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  compatibilityDate: "2024-11-29",
 });

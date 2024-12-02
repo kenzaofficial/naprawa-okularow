@@ -1,29 +1,60 @@
 <template>
   <div class="hero">
-    <div class="hero__text">
-      <h2 class="hero__title">Naprawa wszystkich uszkodzeń okularów</h2>
-    </div>
     <v-container class="hero__container">
-      <form-client title="Prośba o naprawę okularów" />
+      <div class="hero__text">
+        <h1 class="hero__title">Naprawa wszystkich uszkodzeń okularów</h1>
+        <h2 class="hero__subtitle">
+          Myślisz, że Twoje okulary są nie do naprawienia? Udowodnimy, że się
+          mylisz! Naprawiamy szybko, sprawnie i profesjonalnie.
+        </h2>
+      </div>
+      <div class="hero__check">
+        <h3 class="hero__check-title">Usługi:</h3>
+        <ul class="hero__checklist">
+          <li
+            class="hero__checklist-item"
+            v-for="(item, index) in checklistItems"
+            :key="index"
+          >
+            {{ item }}
+          </li>
+        </ul>
+      </div>
     </v-container>
   </div>
 </template>
-
-<script>
+<script setup>
+import { ref } from "vue";
 import VContainer from "@/components/atoms/v-container/VContainer.vue";
-import FormClient from "@/components/forms/form-client/FormClient.vue";
 
-export default {
-  name: "VHero",
-  components: { VContainer, FormClient },
-};
+const checklistItems = ref([
+  "Możliwość pilnej naprawy",
+  "Naprawa zauszników",
+  "Naprawa flexów",
+  "Spawanie opraw metalowych",
+  "Lutowianie opraw plastikowych",
+  "Polerowanie oprawek",
+]);
 </script>
 
-<style scoped>
+<style>
 .hero {
-  padding: 100px 0 50px;
-  background:var(--body) url("@/assets/images/hero-background.jpeg") center / cover
-    no-repeat;
+  padding: 50px 0;
+  position: relative;
+  background: var(--body) url("@/assets/images/hero-background.jpeg") center /
+    cover no-repeat;
+  z-index: 1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-secondary-opacity);
+  z-index: -1;
 }
 
 .hero__container {
@@ -34,38 +65,65 @@ export default {
 }
 
 .hero__text {
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 100%;
-  background-color: var(--bg-secondary-opacity);
-  text-align: center;
+  padding: 0 10px;
+  line-height: 1.4;
 }
 
 .hero__title {
-  font-size: 24px;
+  font-size: 32px;
+  color: var(--color-primary);
+
   font-weight: bold;
-  margin: 0;
+  margin-bottom: 30px;
 }
 
-.hero__description {
-  display: block;
-  font-weight: 700;
+.hero__subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.hero__check {
   width: 100%;
-  font-size: 10px;
-  text-align: right;
+}
+.hero__checklist {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: left;
+}
+.hero__check-title {
+  margin-bottom: 10px;
+  color: var(--color-primary);
 }
 
-@media (max-width: 767px) {
+.hero__checklist-item::before {
+  content: "✔";
+  color: var(--color-primary);
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+@media (min-width: 500px) {
+  .hero__container {
+    flex-direction: row;
+  }
+  .hero__checklist {
+    /* display: grid;
+    grid-template-columns: repeat(2, auto); */
+  }
+}
+@media (min-width: 767px) {
   .hero {
-    padding: 50px 0 30px;
+    padding: 100px 0;
+  }
+
+  .hero__text {
+    text-align: left;
+    max-width: 500px;
   }
 
   .hero__title {
-    font-size: 18px;
-  }
-
-  .hero__description {
-    font-size: 8px;
+    margin-bottom: 10px;
   }
 }
 </style>

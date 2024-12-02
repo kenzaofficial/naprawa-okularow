@@ -122,7 +122,8 @@ const currentYear = computed(() => new Date().getFullYear());
   gap: 5px;
 }
 
-.footer__address {
+.footer__address,
+.footer__contacts {
   text-align: left;
 }
 
@@ -162,9 +163,6 @@ const currentYear = computed(() => new Date().getFullYear());
   }
 }
 @media (min-width: 500px) {
-  .footer__link {
-    column-gap: 10px;
-  }
   .footer__link img {
     width: 25px;
   }
@@ -173,14 +171,11 @@ const currentYear = computed(() => new Date().getFullYear());
   .footer {
     padding: 20px 0;
   }
-
   .footer__list {
     grid-template-columns: repeat(3, auto);
     gap: 10px 30px;
   }
-  .footer__link {
-    font-size: 16px;
-  }
+
   .footer__container {
     margin-bottom: 20px;
   }

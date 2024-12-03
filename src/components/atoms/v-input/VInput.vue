@@ -54,7 +54,6 @@ export default {
 .input__field {
   width: 100%;
   display: inline-block;
-  border: none;
   padding: 10px;
   font-size: 10px;
   border: 1px solid var(--text-primary);

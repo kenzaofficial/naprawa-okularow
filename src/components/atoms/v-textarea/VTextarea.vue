@@ -26,7 +26,7 @@ export default {
   padding: 10px;
   font-size: 14px;
   border: 1px solid var(--text-primary);
-  background-color: var(--background-input-text);
+  background-color: var(--bg-primary);
   border-radius: var(--default-radius);
   overflow-x: hidden;
   resize: vertical;

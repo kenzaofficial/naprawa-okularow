@@ -60,22 +60,22 @@ const menuItems = ref([
 const socials = ref([
   {
     href: "https://www.facebook.com/share/1H7LsA1kHv/?mibextid=LQQJ4d",
-    icon: "/icons/facebook.svg",
+    icon: "./icons/facebook.svg",
     alt: "facebook",
   },
   {
     href: "https://www.instagram.com/naprawa_okularow?igsh=b2ljbmZrNTRxOHNv",
-    icon: "/icons/instagram.svg",
+    icon: "./icons/instagram.svg",
     alt: "instagram",
   },
   {
     href: "https://wa.me/+48881554779",
-    icon: "/icons/whatsapp.svg",
+    icon: "./icons/whatsapp.svg",
     alt: "whatsapp",
   },
   {
     href: "https://t.me/naprawa_okularow",
-    icon: "/icons/telegram.svg",
+    icon: "./icons/telegram.svg",
     alt: "telegram",
   },
 ]);

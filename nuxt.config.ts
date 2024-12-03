@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     "~/assets/css/variables.css",
     "~/assets/css/fonts.css",
   ],
-  ssr: false,
   srcDir: "src/",
   devtools: { enabled: false },
   plugins: ["~/plugins/vue-the-mask.js"],

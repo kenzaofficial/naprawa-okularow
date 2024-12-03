@@ -4,7 +4,7 @@
       src="@/assets/images/logo.jpg"
       alt="logo"
       class="logo__image"
-      height="30px"
+      height="30"
     />
   </a>
 </template>

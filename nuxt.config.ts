@@ -10,21 +10,21 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Naprawa okularów Wrcolaw",
+      title: "Naprawa okularów Wrocław",
       meta: [
         {
           name: "description",
           content:
-            "Profesjonalna naprawa okularów w szybkim czasie we Wroclawiu. Usługi wysokiej jakości dla każdego rodzaju okularów – zapraszamy!",
+            "Profesjonalna naprawa okularów w szybkim czasie we Wrocławiu. Usługi wysokiej jakości dla każdego rodzaju okularów – zapraszamy!",
         },
         {
           name: "keywords",
           content:
-            "naprawa okularów Wroclaw, naprawa okularow Borek, CH Borek, serwis nawrawy okularów, szybka naprawa, okulary, pilna naprawa okularow",
+            "naprawa okularów Wrocław, naprawa okularów Borek, CH Borek, serwis naprawy okularów, szybka naprawa, okulary, pilna naprawa okularów",
         },
         {
           name: "author",
-          content: "Naprawa okularow",
+          content: "Naprawa okularów",
         },
         {
           name: "viewport",
@@ -33,6 +33,21 @@ export default defineNuxtConfig({
         {
           "http-equiv": "Content-Language",
           content: "pl",
+        },
+      ],
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-Z3G3WFL0G4",
+          async: true,
+        },
+        {
+          children: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Z3G3WFL0G4');
+          `,
+          type: "text/javascript",
         },
       ],
     },

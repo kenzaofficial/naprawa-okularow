@@ -1,0 +1,1 @@
+import{t,v as n,R as s}from"./lz4hupV9.js";const a={class:"container"},_=Object.assign({name:"VContainer"},{__name:"VContainer",setup(o){return(e,r)=>(t(),n("div",a,[s(e.$slots,"default")]))}});export{_};

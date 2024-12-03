@@ -1,0 +1,1 @@
+import{t,v as n,R as s}from"./0Zzm_EtC.js";const a={class:"container"},_=Object.assign({name:"VContainer"},{__name:"VContainer",setup(o){return(e,r)=>(t(),n("div",a,[s(e.$slots,"default")]))}});export{_};

@@ -51,10 +51,9 @@ import VLogo from "@/components/atoms/v-logo/VLogo.vue";
 import VContainer from "@/components/atoms/v-container/VContainer.vue";
 
 const menuItems = ref([
-  { link: "Prośba", href: "#form-client" },
-  { link: "Kontakty", href: "#contacts" },
-  { link: "Usługi", href: "#services" },
-  { link: "Galeria", href: "#gallery" },
+  { link: "Prośba", href: "#" },
+  { link: "Kontakty", href: "#" },
+  { link: "Galeria", href: "#" },
 ]);
 
 const socials = ref([

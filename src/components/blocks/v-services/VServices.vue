@@ -1,5 +1,6 @@
 <template>
   <div class="services">
+    <v-container>
     <h3 class="services__title">Nasze usługi</h3>
     <ul class="services__list">
       <li
@@ -10,10 +11,12 @@
         <service-card :text="serviceItem.text" :img-path="serviceItem.path" />
       </li>
     </ul>
+    </v-container>
   </div>
 </template>
 
 <script setup>
+import VContainer from "~/components/atoms/v-container/VContainer.vue";
 import ServiceCard from "../../atoms/service-card/ServiceCard.vue";
 import example01 from "./images/example_01.jpg";
 import example02 from "./images/example_02.jpg";
@@ -33,6 +36,8 @@ const Services = ref([
 </script>
 
 <style>
+.services {padding: 20px 0}
+
 .services__list {
   padding-top: 20px;
   display: grid;

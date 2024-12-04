@@ -2,7 +2,7 @@
   <div class="service-card">
     <img class="service-card__img" :src="imgPath" alt="repair case example" />
     <div class="service-card__text">
-      <h6 class="service-card__title">{{ text }}</h6>
+      <h4 class="service-card__title">{{ text }}</h4>
       <span class="service-card__subtitle">mini opis mini opis</span>
       <p class="service-card__description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
@@ -36,6 +36,7 @@ defineProps({
 .service-card {
   border-radius: var(--default-radius);
   overflow: hidden;
+  height: 100%;
 }
 
 .service-card__img {
@@ -46,6 +47,7 @@ defineProps({
   text-align: left;
   padding: 20px;
   background-color: var(--bg-card);
+  height: 100%;
 }
 
 .service-card__title {

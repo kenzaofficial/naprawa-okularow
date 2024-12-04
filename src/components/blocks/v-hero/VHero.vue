@@ -41,11 +41,12 @@ const checklistItems = ref([
 .hero {
   padding: 50px 0;
   position: relative;
-  background: var(--body) url("@/assets/images/hero-background.jpeg") center /
-    cover no-repeat;
   z-index: 1;
+   background: var(--body) url("@/assets/images/hero-background.jpeg") center /
+    cover no-repeat;
 }
 
+/* для полупрозрачности */
 .hero::before {
   content: "";
   position: absolute;

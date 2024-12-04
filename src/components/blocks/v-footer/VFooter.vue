@@ -49,31 +49,31 @@ const socials = ref([
     href: "https://www.facebook.com/share/1H7LsA1kHv/?mibextid=LQQJ4d",
     icon: "/icons/facebook.svg",
     text: "facebook",
-    alt: "facebook",
+    alt: "facebook icon",
   },
   {
     href: "https://www.instagram.com/naprawa_okularow?igsh=b2ljbmZrNTRxOHNv",
     icon: "/icons/instagram.svg",
     text: "instagram",
-    alt: "facebook",
+    alt: "instagram icon",
   },
   {
     href: "https://wa.me/+48881554779",
     icon: "/icons/whatsapp.svg",
     text: "+48 (815) 547-79",
-    alt: "whatsapp",
+    alt: "whatsapp icon",
   },
   {
     href: "https://t.me/naprawa_okularow",
     icon: "/icons/telegram.svg",
     text: "+48 (815) 547-79",
-    alt: "telegram",
+    alt: "telegram icon",
   },
   {
     href: "#",
     icon: "/icons/viber.svg",
     text: "+48 (815) 547-79",
-    alt: "viber",
+    alt: "viber icon",
   },
 ]);
 const currentYear = computed(() => new Date().getFullYear());

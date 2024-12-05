@@ -24,16 +24,12 @@ defineProps({
     default: "path to image",
   },
 });
-
-// const imgUrl = new URL(this.imgPath, import.meta.url).href;
-// console.log('loh', imgUrl);
-
-
-
 </script>
 
 <style>
 .service-card {
+  display: flex;
+  flex-direction: column;
   border-radius: var(--default-radius);
   overflow: hidden;
   height: 100%;
@@ -45,6 +41,7 @@ defineProps({
 
 .service-card__text {
   text-align: left;
+  word-break: break-all;
   padding: 20px;
   background-color: var(--bg-card);
   height: 100%;

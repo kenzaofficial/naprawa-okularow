@@ -2,14 +2,12 @@
   <div class="hero">
     <v-container class="hero__container">
       <div class="hero__text">
-        <h1 class="hero__title">Naprawa wszystkich uszkodzeń okularów</h1>
+        <h1 class="hero__title">Naprawa okularów</h1>
         <h2 class="hero__subtitle">
           Myślisz, że Twoje okulary są nie do naprawienia? Udowodnimy, że się
           mylisz! Naprawiamy szybko, sprawnie i profesjonalnie.
         </h2>
       </div>
-      <div class="hero__check">
-        <h3 class="hero__check-title">Usługi:</h3>
         <ul class="hero__checklist">
           <li
             class="hero__checklist-item"
@@ -19,7 +17,6 @@
             {{ item }}
           </li>
         </ul>
-      </div>
     </v-container>
   </div>
 </template>
@@ -42,11 +39,10 @@ const checklistItems = ref([
   padding: 50px 0;
   position: relative;
   z-index: 1;
-   background: var(--body) url("@/assets/images/hero-background.jpeg") center /
+   background: var(--body) url("@/assets/images/hero-background.jpeg") 50% /
     cover no-repeat;
 }
 
-/* для полупрозрачности */
 .hero::before {
   content: "";
   position: absolute;
@@ -65,36 +61,24 @@ const checklistItems = ref([
   align-items: center;
 }
 
-.hero__text {
-  padding: 0 10px;
-  line-height: 1.4;
-}
-
 .hero__title {
-  font-size: 32px;
+  font-size: 48px;
   color: var(--color-primary);
-
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .hero__subtitle {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.4;
   margin-bottom: 20px;
 }
 
-.hero__check {
-  width: 100%;
-}
 .hero__checklist {
   list-style-type: none;
   padding-left: 0;
   text-align: left;
-}
-.hero__check-title {
-  margin-bottom: 10px;
-  color: var(--color-primary);
 }
 
 .hero__checklist-item::before {
@@ -104,27 +88,36 @@ const checklistItems = ref([
   margin-right: 10px;
 }
 
-@media (min-width: 500px) {
-  .hero__container {
-    flex-direction: row;
-  }
-  .hero__checklist {
-    /* display: grid;
-    grid-template-columns: repeat(2, auto); */
-  }
-}
 @media (min-width: 767px) {
   .hero {
     padding: 100px 0;
   }
 
-  .hero__text {
-    text-align: left;
-    max-width: 500px;
-  }
-
   .hero__title {
+    font-size: 60px;
     margin-bottom: 10px;
+  }
+  .hero__checklist {
+    font-size: 20px;
+  }
+  .hero__checklist-item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 998px) {
+  .hero__container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .hero__text {
+    max-width: 600px;
+  }
+  .hero__title {
+    font-size: 120px;
+  }
+  .hero__subtitle {
+    font-size: 18px;
   }
 }
 </style>

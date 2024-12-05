@@ -24,6 +24,5 @@
   --default-radius: 5px;
 
   /* --------------------------gradients-------------------------- */
-
   --base-gradient-01: linear-gradient(90deg, #252525fa 10%, #070707fa 80%);
 }

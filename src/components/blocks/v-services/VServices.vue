@@ -44,6 +44,7 @@ const Services = ref([
   line-height: 2.4;
   letter-spacing: 0.2em;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .services__title:before {
@@ -71,14 +72,13 @@ const Services = ref([
   background-color: var(--color-primary);
 }
 .services__list {
-  padding-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
 @media (min-width: 767px) {
-  .services__title{
+  .services__title {
     font-size: 42px;
   }
   .services__title:before {

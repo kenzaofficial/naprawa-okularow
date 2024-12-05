@@ -12,14 +12,13 @@
   --text-primary-opacity: #ffffff71;
   --text-secondary: #202020;
   --color-error: #9b0000;
-  --color-primary: #34c759;
   --color-primary-intense: #003606;
   --color-primary: #8aff80db;
   --color-secondary: #2f73d8;
   --color-tertiary: #fde616;
 
   /* --------------------------fonts-------------------------- */
-  --font-main: "Golos Text", sans-serif;
+  --font-main: "Montserrat", sans-serif;
 
   /* --------------------------fonts-------------------------- */
   --default-radius: 5px;

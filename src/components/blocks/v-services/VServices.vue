@@ -37,11 +37,52 @@ const Services = ref([
 
 <style>
 .services {padding: 20px 0}
+.services__title {
+  position: relative;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 2.4;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
 
+.services__title:before {
+  position: absolute;
+  content: "usługi";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  color: var(--bg-card);
+  text-transform: uppercase;
+  z-index: -1;
+}
+.services__title:after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary);
+}
 .services__list {
   padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 20px;
+}
+
+@media (min-width: 767px) {
+  .services__title{
+    font-size: 42px;
+  }
+  .services__title:before {
+    font-size: 84px;
+  }
 }
 </style>

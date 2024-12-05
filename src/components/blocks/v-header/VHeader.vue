@@ -96,6 +96,7 @@ const toggleMenu = () => {
   align-items: center;
   border-bottom: 2px solid #ffffff1a;
   background: var(--base-gradient-01);
+  z-index: 2;
 }
 
 .header__container {

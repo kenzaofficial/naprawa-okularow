@@ -129,19 +129,15 @@ onMounted(() => {
     font-size: 18px;
   }
 }
-.hero__title,
-.hero__subtitle,
-.hero__checklist {
-  opacity: 0; /* Начальное скрытие */
-  transform: translateY(20px); /* Смещение вниз */
-  transition: opacity 0.6s ease, transform 0.6s ease; /* Анимация */
+.hero__container
+ {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Класс для появления */
-.hero--visible .hero__title,
-.hero--visible .hero__subtitle,
-.hero--visible .hero__checklist {
-  opacity: 1; /* Появление */
-  transform: translateY(0); /* Возврат на место */
+.hero--visible .hero__container {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

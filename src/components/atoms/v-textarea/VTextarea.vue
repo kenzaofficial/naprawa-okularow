@@ -24,7 +24,7 @@ export default {
   width: 100%;
   display: inline-block;
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
   border: 1px solid var(--text-primary);
   background-color: var(--bg-primary);
   border-radius: var(--default-radius);

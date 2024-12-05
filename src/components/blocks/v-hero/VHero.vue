@@ -1,5 +1,5 @@
 <template>
-  <div class="hero">
+  <div class="hero" :class="{ 'hero--visible': isVisible }">
     <v-container class="hero__container">
       <div class="hero__text">
         <h1 class="hero__title">Naprawa okularów</h1>
@@ -8,20 +8,21 @@
           mylisz! Naprawiamy szybko, sprawnie i profesjonalnie.
         </h2>
       </div>
-        <ul class="hero__checklist">
-          <li
+      <ul class="hero__checklist">
+        <li
             class="hero__checklist-item"
             v-for="(item, index) in checklistItems"
             :key="index"
-          >
-            {{ item }}
-          </li>
-        </ul>
+        >
+          {{ item }}
+        </li>
+      </ul>
     </v-container>
   </div>
 </template>
+
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import VContainer from "@/components/atoms/v-container/VContainer.vue";
 
 const checklistItems = ref([
@@ -32,6 +33,14 @@ const checklistItems = ref([
   "Lutowianie opraw plastikowych",
   "Polerowanie oprawek",
 ]);
+
+const isVisible = ref(false);
+
+onMounted(() => {
+  setTimeout(() => {
+    isVisible.value = true;
+  }, 1);
+});
 </script>
 
 <style>
@@ -39,8 +48,8 @@ const checklistItems = ref([
   padding: 50px 0;
   position: relative;
   z-index: 1;
-   background: var(--body) url("@/assets/images/hero-background.jpeg") 50% /
-    cover no-repeat;
+   background: var(--body) url("@/assets/images/hero-background.jpeg") center /
+   cover no-repeat;
 }
 
 .hero::before {
@@ -119,5 +128,20 @@ const checklistItems = ref([
   .hero__subtitle {
     font-size: 18px;
   }
+}
+.hero__title,
+.hero__subtitle,
+.hero__checklist {
+  opacity: 0; /* Начальное скрытие */
+  transform: translateY(20px); /* Смещение вниз */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Анимация */
+}
+
+/* Класс для появления */
+.hero--visible .hero__title,
+.hero--visible .hero__subtitle,
+.hero--visible .hero__checklist {
+  opacity: 1; /* Появление */
+  transform: translateY(0); /* Возврат на место */
 }
 </style>

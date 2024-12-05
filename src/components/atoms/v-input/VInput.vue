@@ -55,7 +55,7 @@ export default {
   width: 100%;
   display: inline-block;
   padding: 10px;
-  font-size: 10px;
+  font-size: 16px;
   border: 1px solid var(--text-primary);
   border-radius: var(--default-radius);
   background-color: transparent;

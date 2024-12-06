@@ -48,7 +48,7 @@ onMounted(() => {
   padding: 50px 0;
   position: relative;
   z-index: 1;
-   background: var(--body) url("@/assets/images/hero-background.jpeg") center /
+   background: var(--body) url("@/assets/images/hero-background.webp") center /
    cover no-repeat;
 }
 

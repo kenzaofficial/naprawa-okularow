@@ -26,12 +26,18 @@ import example05 from "./images/example_05.jpg";
 import example06 from "./images/example_06.jpg";
 
 const Services = ref([
-  { text: "212", path: example01 },
-  { text: "21sdsad2", path: example02 },
-  { text: "212222222222222", path: example03 },
-  { text: "21dsfsdfdsfdsasdasd2", path: example04 },
-  { text: "212ghghnnh2", path: example05 },
-  { text: "21dfvbcv 2", path: example06 },
+  { text: "Zausznik: wymiana", path: example01 },
+  { text: "Zausznik: spawanie końcówki", path: example02 },
+  { text: "Zausznik: lutowanie", path: example03 },
+  { text: "Flex: wymiana", path: example04 },
+  { text: "Flex: lutowanie", path: example05 },
+  { text: "Flex: spawanie", path: example06 },
+  { text: "Oprawa: spawanie", path: example06 },
+  { text: "Oprawa: polerowanie", path: example06 },
+  { text: "Oprawa: lutowanie", path: example06 },
+  { text: "Nosek: lutowanie", path: example06 },
+  { text: "Nosek: spawanie", path: example06 },
+  { text: "Nosek: wymiana", path: example06 },
 ]);
 </script>
 
@@ -73,7 +79,7 @@ const Services = ref([
 }
 .services__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
 }
 

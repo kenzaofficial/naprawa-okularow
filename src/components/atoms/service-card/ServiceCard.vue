@@ -1,8 +1,8 @@
 <template>
   <div class="service-card">
-    <img class="service-card__img" :src="imgPath" alt="repair case example" />
+    <img class="service-card__img" :src="img.path" alt="repair case example" />
     <div class="service-card__text">
-      <h4 class="service-card__title">{{ text }}</h4>
+      <h4 class="service-card__title">{{ img.text }}</h4>
       <span class="service-card__subtitle">mini opis mini opis</span>
     </div>
   </div>
@@ -10,13 +10,10 @@
 
 <script setup>
 defineProps({
-  text: {
-    type: String,
-    default: "default text",
-  },
-  imgPath: {
-    type: String,
-    default: "path to image",
+  img: {
+    type: Object,
+    required: true,
+    default: { text: "default text", path: "#" },
   },
 });
 </script>

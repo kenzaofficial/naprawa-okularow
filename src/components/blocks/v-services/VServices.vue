@@ -1,16 +1,16 @@
 <template>
   <div class="services">
     <v-container>
-    <h3 class="services__title">Nasze usługi</h3>
-    <ul class="services__list">
-      <li
-        v-for="(serviceItem, index) in Services"
-        :key="index"
-        class="services__item"
-      >
-        <service-card :text="serviceItem.text" :img-path="serviceItem.path" />
-      </li>
-    </ul>
+      <h3 class="services__title">Nasze usługi</h3>
+      <ul class="services__list">
+        <li
+          v-for="(serviceItem, index) in services"
+          :key="index"
+          class="services__item"
+        >
+          <service-card :img="serviceItem" />
+        </li>
+      </ul>
     </v-container>
   </div>
 </template>
@@ -25,7 +25,7 @@ import example04 from "./images/example_04.jpg";
 import example05 from "./images/example_05.jpg";
 import example06 from "./images/example_06.jpg";
 
-const Services = ref([
+const services = ref([
   { text: "Zausznik: wymiana", path: example01 },
   { text: "Zausznik: spawanie końcówki", path: example02 },
   { text: "Zausznik: lutowanie", path: example03 },
@@ -42,7 +42,9 @@ const Services = ref([
 </script>
 
 <style>
-.services {padding: 20px 0}
+.services {
+  padding: 20px 0;
+}
 .services__title {
   position: relative;
   font-size: 28px;

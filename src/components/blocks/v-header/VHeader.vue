@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <v-container class="header__container">
-      <v-logo />
+      <v-logo :is-logo-full="isLogoFull" />
       <button
         class="header__burger"
         :class="{ 'header__burger--active': isMenuOpen }"
@@ -46,9 +46,24 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import VLogo from "@/components/atoms/v-logo/VLogo.vue";
 import VContainer from "@/components/atoms/v-container/VContainer.vue";
+
+const isLogoFull = ref(false);
+
+const updateLogoVisibility = () => {
+  isLogoFull.value = window.matchMedia("(min-width: 360px)").matches;
+};
+
+onMounted(() => {
+  updateLogoVisibility(); // Устанавливаем начальное значение
+  window.addEventListener("resize", updateLogoVisibility); // Отслеживаем изменения размера
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateLogoVisibility); // Удаляем слушатель при уничтожении компонента
+});
 
 const menuItems = ref([
   { link: "Prośba", href: "#" },
@@ -142,9 +157,11 @@ const toggleMenu = () => {
   transition: 0.3s;
   border-radius: var(--default-radius);
 }
+
 .header__burger::before {
   top: 0;
 }
+
 .header__burger::after {
   bottom: 0;
 }
@@ -197,6 +214,7 @@ const toggleMenu = () => {
   width: 100%;
   border-bottom: 2px solid transparent;
 }
+
 .header__menu-link:hover {
   color: var(--color-primary);
   border-bottom: 2px solid var(--color-primary);
@@ -205,41 +223,64 @@ const toggleMenu = () => {
 .header__social-list {
   display: flex;
   align-items: center;
-  order: 1;
-  gap: 10px;
 }
+
 .header__contact-link {
-  display: flex;
+  display: none;
   align-items: center;
   column-gap: 3px;
   color: var(--color-primary);
   font-size: 10px;
   transition: 0.3s;
 }
+
 .header__social-link {
   display: block;
   transition: 0.3s;
+  padding: 3px;
 }
 
 @media (min-width: 400px) {
-  .header__social-list {
-    gap: 15px;
-  }
   .header__contact-link {
     column-gap: 5px;
     font-size: 14px;
   }
+
   .header__contact-link img {
     width: 15px;
   }
+
   .header__social-link img {
     width: 25px;
   }
+  .header__social-link {
+    padding: 5px;
+  }
 }
+
+@media (min-width: 600px) {
+  .header__social-list {
+    gap: 15px;
+  }
+  .header__contact-link {
+    display: flex;
+  }
+}
+
 @media (min-width: 767px) {
+  .header {
+    padding: 10px 0;
+  }
+  .header__contact-link {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 998px) {
   .header__burger {
     display: none;
   }
+
   .header__navigation {
     display: flex;
     background-color: transparent;
@@ -247,15 +288,18 @@ const toggleMenu = () => {
     width: auto;
     max-width: none;
   }
+
   .header__menu-list {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     border-bottom: none;
   }
+
   .header__contact-link {
-    font-size: 16px;
+    font-size: 20px;
   }
+
   .header__contact-link:hover,
   .header__social-link:hover {
     transform: scale(1.1);

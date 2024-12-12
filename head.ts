@@ -1,5 +1,5 @@
 export const head = {
-    title: "Naprawa okularów",
+    title: "Naprawa Okularów",
     htmlAttrs: {
         lang: 'pl'
     },
@@ -7,12 +7,12 @@ export const head = {
         {
             name: "description",
             content:
-                "Pilna Naprawa wszystkich uszkodzeń okularów. Usługi wysokiej jakości dla każdego rodzaju okularów – zapraszamy!",
+                "Pilna Naprawa WSZYSTKICH uszkodzeń okularów. Szybko naprawiamy w całej Polsce – zapraszamy!",
         },
         {
             name: "keywords",
             content:
-                "naprawa okularów Polska, naprawa okularów Poland, Serwis naprawy okularów, szybka naprawa okularów, pilna naprawa okularów",
+                "naprawa okularów Polska, naprawa okularów Poland, naprawa okularow Wroclaw, Serwis naprawy okularów, szybka naprawa okularów, pilna naprawa okularów",
         },
         {
             name: "author",
@@ -25,6 +25,10 @@ export const head = {
         {
             "http-equiv": "Content-Language",
             content: "pl",
+        },
+        {
+            name: "robots",
+            content: "index, follow",
         },
     ],
     script: [

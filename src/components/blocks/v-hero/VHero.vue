@@ -3,20 +3,13 @@
     <v-container class="hero__container">
       <div class="hero__text">
         <h1 class="hero__title">Naprawa okularów</h1>
-        <h2 class="hero__subtitle">
-          Myślisz, że Twoje okulary są nie do naprawienia? Udowodnimy, że się
-          mylisz! Naprawiamy szybko, sprawnie i profesjonalnie.
-        </h2>
-      </div>
-      <ul class="hero__checklist">
-        <li
-            class="hero__checklist-item"
-            v-for="(item, index) in checklistItems"
-            :key="index"
+        <h2 class="hero__subtitle">Naprawiamy wszystkie uszkodzeńia</h2>
+        <p class="hero__description">Na terenie całej Polski</p>
+        <a class="hero__contact-link" href="tel:+48881554779">
+          <img src="@/public/icons/telefon.svg" alt="telefon" width="20" />
+          +48 (815) 547-79</a
         >
-          {{ item }}
-        </li>
-      </ul>
+      </div>
     </v-container>
   </div>
 </template>
@@ -25,14 +18,14 @@
 import { ref, onMounted } from "vue";
 import VContainer from "@/components/atoms/v-container/VContainer.vue";
 
-const checklistItems = ref([
-  "Możliwość pilnej naprawy",
-  "Naprawa zauszników",
-  "Naprawa flexów",
-  "Spawanie opraw metalowych",
-  "Lutowianie opraw plastikowych",
-  "Polerowanie oprawek",
-]);
+// const checklistItems = ref([
+//   "Możliwość pilnej naprawy",
+//   "Naprawa zauszników",
+//   "Naprawa flexów",
+//   "Spawanie opraw metalowych",
+//   "Lutowianie opraw plastikowych",
+//   "Polerowanie oprawek",
+// ]);
 
 const isVisible = ref(false);
 
@@ -48,8 +41,8 @@ onMounted(() => {
   padding: 50px 0;
   position: relative;
   z-index: 1;
-   background: var(--body) url("@/assets/images/hero-background.webp") center /
-   cover no-repeat;
+  background: var(--body) url("@/assets/images/hero-background.webp") center /
+    cover no-repeat;
 }
 
 .hero::before {
@@ -70,21 +63,42 @@ onMounted(() => {
   align-items: center;
 }
 
+.hero__text {
+  text-align: center;
+}
+
 .hero__title {
   font-size: 48px;
   color: var(--color-primary);
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .hero__subtitle {
-  font-size: 14px;
+  font-size: 36px;
+  color: var(--color-primary);
   font-weight: 400;
-  line-height: 1.4;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.hero__checklist {
+.hero__description {
+  color: var(--color-primary);
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.hero__contact-link {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  justify-content: center;
+  color: var(--color-primary);
+  font-size: 18px;
+  transition: 0.3s;
+  text-decoration: underline;
+}
+
+/* .hero__checklist {
   list-style-type: none;
   padding-left: 0;
   text-align: left;
@@ -95,42 +109,60 @@ onMounted(() => {
   color: var(--color-primary);
   font-size: 20px;
   margin-right: 10px;
-}
+} */
 
 @media (min-width: 767px) {
   .hero {
-    padding: 100px 0;
+    padding: 80px 0 100px;
+  }
+
+  .hero__text {
+    text-align: left;
   }
 
   .hero__title {
     font-size: 60px;
     margin-bottom: 10px;
   }
-  .hero__checklist {
-    font-size: 20px;
-  }
-  .hero__checklist-item:not(:last-child) {
+
+  .hero__subtitle {
     margin-bottom: 10px;
   }
+
+  .hero__description {
+    font-size: 24px;
+  }
+
+  .hero__contact-link {
+    justify-content: flex-start;
+  }
+
+  /* .hero__checklist {
+    font-size: 20px;
+  }
+
+  .hero__checklist-item:not(:last-child) {
+    margin-bottom: 10px;
+  } */
 }
+
 @media (min-width: 998px) {
   .hero__container {
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
   }
-  .hero__text {
-    max-width: 600px;
-  }
+
   .hero__title {
     font-size: 120px;
   }
+
   .hero__subtitle {
-    font-size: 18px;
+    font-size: 72px;
   }
 }
-.hero__container
- {
+
+.hero__container {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;

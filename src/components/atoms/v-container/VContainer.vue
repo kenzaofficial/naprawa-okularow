@@ -22,7 +22,7 @@ defineOptions({
     padding: 0 20px;
   }
 }
-@media (min-width: 998px) {
+@media (min-width: 1190px) {
   .container {
     padding: 0 40px;
   }

@@ -3,6 +3,7 @@
     <label for="file-upload" class="file-upload__button">
       Dodaj zdjęcia okularów
     </label>
+    <span v-if="error" class="input__error">{{ error }}</span>
     <input id="file-upload" type="file" @change="onFileChange" multiple />
     <div v-if="filePreviews.length" class="file-upload__previews">
       <div
@@ -23,6 +24,12 @@
 
 <script setup>
 import { ref, onBeforeUnmount } from "vue";
+defineProps({
+  error:{
+    type:String,
+    default:'222'
+  },
+});
 const emit = defineEmits();
 const filePreviews = ref([]);
 
@@ -42,6 +49,28 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.input__error {
+  color: var(--color-error);
+  font-size: 10px;
+  margin-top: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.input__error::before {
+  content: "!";
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  font-weight: 600;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
 .file-upload {
   display: block;
 }

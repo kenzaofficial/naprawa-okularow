@@ -66,9 +66,9 @@ onUnmounted(() => {
 });
 
 const menuItems = ref([
+  { link: "Paczkomat", href: "#" },
   { link: "Prośba", href: "#" },
-  { link: "Kontakty", href: "#" },
-  { link: "Galeria", href: "#" },
+  // { link: "Galeria", href: "#" },
 ]);
 
 const socials = ref([

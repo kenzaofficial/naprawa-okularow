@@ -72,11 +72,7 @@ export default {
   font-size: 12px;
   color: var(--text-primary-opacity);
 }
-.input__error {
-  color: var(--color-error);
-  font-size: 10px;
-  margin-top: 5px;
-}
+
 .input--error .input__field {
   border: 1px solid var(--color-error);
 }
@@ -84,6 +80,9 @@ export default {
   color: var(--color-error);
 }
 .input__error {
+  color: var(--color-error);
+  font-size: 10px;
+  margin-top: 5px;
   position: relative;
   display: flex;
   align-items: center;

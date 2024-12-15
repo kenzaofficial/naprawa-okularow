@@ -5,10 +5,19 @@
         <h1 class="hero__title">Pilna Naprawa okularów</h1>
         <h2 class="hero__subtitle">Naprawiamy wszystkie uszkodzeńia</h2>
         <p class="hero__description">Na terenie całej Polski</p>
-        <a class="hero__contact-link" href="tel:+48881554779">
-          <img src="@/public/icons/telefon.svg" alt="telefon" width="20" />
-          +48 (815) 547-79</a
-        >
+        <div class="hero__contacts">
+          <a class="hero__contact-link" href="tel:+48881554779">
+            <img src="@/public/icons/telefon.svg" alt="telefon" width="20" />
+            +48 (815) 547-79</a
+          >
+          <a
+            class="hero__address-link"
+            href="https://maps.app.goo.gl/KUjSfp7xy2pU284F8"
+            target="_blank"
+            >Wroclaw, Centrum Handlowe Borek. ul. Hallera 52. lokal na przeciwko
+            RESERVED Pn-Sb. 9.00-21.00
+          </a>
+        </div>
       </div>
     </v-container>
   </div>
@@ -17,15 +26,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import VContainer from "@/components/atoms/v-container/VContainer.vue";
-
-// const checklistItems = ref([
-//   "Możliwość pilnej naprawy",
-//   "Naprawa zauszników",
-//   "Naprawa flexów",
-//   "Spawanie opraw metalowych",
-//   "Lutowianie opraw plastikowych",
-//   "Polerowanie oprawek",
-// ]);
 
 const isVisible = ref(false);
 
@@ -83,14 +83,16 @@ onMounted(() => {
 
 .hero__description {
   color: var(--color-primary);
+  font-weight: 500;
   font-size: 18px;
   margin-bottom: 30px;
 }
 
 .hero__contact-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   column-gap: 5px;
+  margin-bottom: 10px;
   justify-content: center;
   color: var(--color-primary);
   font-size: 18px;
@@ -98,22 +100,28 @@ onMounted(() => {
   text-decoration: underline;
 }
 
-/* .hero__checklist {
-  list-style-type: none;
-  padding-left: 0;
-  text-align: left;
+.hero__contact-link:hover {
+  transform: scale(1.1);
 }
 
-.hero__checklist-item::before {
-  content: "✔";
+.hero__address-link {
+  color: var(--text-primary-opacity);
+  transition: 0.3s;
+}
+
+.hero__address-link:hover {
   color: var(--color-primary);
-  font-size: 20px;
-  margin-right: 10px;
-} */
+}
 
 @media (min-width: 767px) {
   .hero {
     padding: 80px 0 100px;
+  }
+
+  .hero__container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   .hero__text {
@@ -133,26 +141,16 @@ onMounted(() => {
     font-size: 24px;
   }
 
+  .hero__contacts {
+    max-width: 400px;
+  }
+
   .hero__contact-link {
     justify-content: flex-start;
   }
-
-  /* .hero__checklist {
-    font-size: 20px;
-  }
-
-  .hero__checklist-item:not(:last-child) {
-    margin-bottom: 10px;
-  } */
 }
 
 @media (min-width: 998px) {
-  .hero__container {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
   .hero__title {
     font-size: 120px;
   }

@@ -24,7 +24,6 @@ import example02 from "./images/example_02.jpg";
 import example03 from "./images/example_03.jpg";
 import example04 from "./images/example_04.jpg";
 import example05 from "./images/example_05.jpg";
-import example06 from "./images/example_06.jpg";
 
 const services = ref([
   { text: "Zausznik: wymiana", path: example01 },

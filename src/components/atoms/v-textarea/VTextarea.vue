@@ -31,13 +31,16 @@ export default {
   overflow-x: hidden;
   resize: vertical;
 }
+
 .textarea__field:focus-within {
   border-color: var(--color-primary);
   outline: none;
 }
+
 .textarea:focus-within .textarea__label {
   color: var(--color-primary);
 }
+
 .textarea__label {
   display: block;
   text-align: left;
@@ -45,12 +48,14 @@ export default {
   margin-bottom: 2px;
   font-size: 12px;
 }
+
 .textarea__field::placeholder {
   font-size: 12px;
   color: var(--text-primary-opacity);
 }
-@media (min-width: 767px) {
-  .textarea {
+@media (min-width: 998px) {
+  .textarea__field, .textarea__label,
+  .textarea__field::placeholder {
     font-size: 20px;
   }
 }

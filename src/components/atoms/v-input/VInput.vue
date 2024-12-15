@@ -51,6 +51,7 @@ export default {
   margin-bottom: 2px;
   font-size: 12px;
 }
+
 .input__field {
   width: 100%;
   display: inline-block;
@@ -81,7 +82,7 @@ export default {
 }
 .input__error {
   color: var(--color-error);
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 5px;
   position: relative;
   display: flex;
@@ -101,9 +102,24 @@ export default {
   height: 10px;
   border-radius: 50%;
 }
-@media (min-width: 767px) {
+
+@media (min-width: 998px) {
+  .input__field,
+  .input__label,
+  .input__field::placeholder {
+    font-size: 20px;
+  }
   .input__field {
-    font-size: 14px;
+    padding: 15px;
+  }
+
+  .input__error {
+    font-size: 18px;
+  }
+  .input__error::before {
+    font-size: 10px;
+    width: 12px;
+    height: 12px;
   }
 }
 </style>

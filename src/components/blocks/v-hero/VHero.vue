@@ -11,6 +11,21 @@
             +48 (815) 547-79</a
           >
           <a
+            class="hero__reviews-link"
+            target="_blank"
+            href="https://www.google.com/search?sca_esv=eab14d77fff45731&sxsrf=ADLYWIIN8O3N10C_evj46bkj6NvvZbS39Q:1734281444430&uds=ADvngMjcH0KdF7qGWtwTBrP0nt7dUa4_jJMN3YeYI0BiCc94Z_aQg6xDJWTKKPMMt2ljeaVgjyfndZqxcKBYs8X25djPHbFx7iLwQq7JZ3A_dl6Dqvc8OdBVXR_guz2MtjS5HJDvlHMoWDSESkCgEbwloRR3dCANiA&si=ACC90nzZwgO0P4Qu3-A0NldYnwAKwrAmvjJXmiihL2mEqps3A1lBqjFrkVXveYCIeG5HnY1pmQ7P2tdj04wFh0PsnS4jz1Gmv3qYyVnnSmGnzh9Go1TzDdk%3D&q=Naprawa+Okular%C3%B3w+pilna.+CH+Borek.+Repair+of+all+damage+to+glasses+%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B&sa=X&sqi=2&ved=2ahUKEwjy9L3rnaqKAxVMX_EDHVMAJgIQ3PALegQIVhAF&biw=1920&bih=911&dpr=1"
+          >
+            Nasze opinie w
+            <div class="hero__google-logo">
+              <span class="g-blue">G</span>
+              <span class="o-red">o</span>
+              <span class="o-yellow">o</span>
+              <span class="g-blue">g</span>
+              <span class="l-green">l</span>
+              <span class="e-red">e</span>
+            </div>
+          </a>
+          <a
             class="hero__address-link"
             href="https://maps.app.goo.gl/KUjSfp7xy2pU284F8"
             target="_blank"
@@ -104,6 +119,49 @@ onMounted(() => {
   transform: scale(1.1);
 }
 
+.hero__reviews-link {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  max-width: 400px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  background-color: var(--text-primary);
+  border-radius: var(--default-radius);
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.hero__reviews-link:hover {
+  background-color: var(--color-primary);
+  color: var(--text-secondary);
+}
+
+.hero__google-logo {
+  display: inline;
+  font-weight: 600;
+}
+.g-blue {
+  color: #4285f4; /* Синий */
+}
+
+.o-red {
+  color: #ea4335; /* Красный */
+}
+
+.o-yellow {
+  color: #fbbc05; /* Желтый */
+}
+
+.l-green {
+  color: #34a853; /* Зеленый */
+}
+
+.e-red {
+  color: #ea4335; /* Красный */
+}
+
 .hero__address-link {
   color: var(--text-primary-opacity);
   transition: 0.3s;
@@ -147,6 +205,11 @@ onMounted(() => {
 
   .hero__contact-link {
     justify-content: flex-start;
+  }
+
+  .hero__reviews-link {
+    font-size: 22px;
+    padding: 15px;
   }
 }
 

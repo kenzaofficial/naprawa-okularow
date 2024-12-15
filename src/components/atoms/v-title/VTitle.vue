@@ -15,10 +15,10 @@ defineProps({
   position: relative;
   font-size: 28px;
   font-weight: 400;
-  line-height: 2.4;
+  line-height: 1.4;
   letter-spacing: 0.2em;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .title:before {

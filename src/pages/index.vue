@@ -2,7 +2,6 @@
   <v-hero />
   <other-city/>
   <v-services />
-  <form-client />
 </template>
 
 <script setup lang="ts">

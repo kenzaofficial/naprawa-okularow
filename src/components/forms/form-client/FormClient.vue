@@ -62,34 +62,35 @@ export default {
     };
 
     const validateAndSend = () => {
-  let hasError = false // Флаг, указывающий, есть ли ошибки
+      let hasError = false; // Флаг, указывающий, есть ли ошибки
 
-  // Проверка номера телефона
-  if (!form.value.phoneNumber.trim()) {
-    errorPhoneNumberText.value = 'Pole jest wymagane'
-    hasError = true
-  } else if (form.value.phoneNumber.trim().length !== 17) {
-    errorPhoneNumberText.value = 'Numer telefonu musi mieć dokładnie 11 cyfr'
-    hasError = true
-  } else {
-    errorPhoneNumberText.value = '' // Очищаем ошибку, если номер валиден
-  }
+      // Проверка номера телефона
+      if (!form.value.phoneNumber.trim()) {
+        errorPhoneNumberText.value = "Pole jest wymagane";
+        hasError = true;
+      } else if (form.value.phoneNumber.trim().length !== 17) {
+        errorPhoneNumberText.value =
+          "Numer telefonu musi mieć dokładnie 11 cyfr";
+        hasError = true;
+      } else {
+        errorPhoneNumberText.value = ""; // Очищаем ошибку, если номер валиден
+      }
 
-  // Проверка наличия фотографий
-  if (!photos.value.length) {
-    ErrorPhotoUpload.value = 'Musisz dodać co najmniej jedno zdjęcie'
-    hasError = true
-  } else {
-    ErrorPhotoUpload.value = '' // Очищаем ошибку, если фотографии загружены
-  }
+      // Проверка наличия фотографий
+      if (!photos.value.length) {
+        ErrorPhotoUpload.value = "Musisz dodać co najmniej jedno zdjęcie";
+        hasError = true;
+      } else {
+        ErrorPhotoUpload.value = ""; // Очищаем ошибку, если фотографии загружены
+      }
 
-  // Если есть ошибки, не отправляем форму
-  if (hasError) {
-    return
-  }
-  
-  sendMessage()
-}
+      // Если есть ошибки, не отправляем форму
+      if (hasError) {
+        return;
+      }
+
+      sendMessage();
+    };
 
     const sendMessage = async () => {
       const token = "8106494538:AAGxISQenkDbjtfISzIeYuNwXz4FgIpng-Y";
@@ -131,7 +132,7 @@ export default {
       handleFileUpload,
       validateAndSend,
       errorPhoneNumberText,
-      ErrorPhotoUpload
+      ErrorPhotoUpload,
     };
   },
 };
@@ -159,5 +160,16 @@ export default {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;
+}
+
+@media (min-width: 998px) {
+  .form-client {
+    max-width: 900px;
+    padding: 40px;
+  }
+
+  .form-client__field {
+    margin-bottom: 20px;
+  }
 }
 </style>

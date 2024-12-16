@@ -53,10 +53,11 @@ onBeforeUnmount(() => {
   color: var(--color-error);
   font-size: 14px;
   margin-top: 5px;
+  text-align: left;
   position: relative;
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 5px;
 }
 .file-upload__error::before {
   content: "!";
@@ -67,6 +68,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 10px;
   height: 10px;
   border-radius: 50%;

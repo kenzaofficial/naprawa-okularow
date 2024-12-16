@@ -85,9 +85,10 @@ export default {
   font-size: 14px;
   margin-top: 5px;
   position: relative;
+  text-align: left;
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 5px;
 }
 .input__error::before {
   content: "!";
@@ -96,6 +97,7 @@ export default {
   font-weight: 600;
   font-size: 8px;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: 10px;

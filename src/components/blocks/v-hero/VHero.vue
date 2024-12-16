@@ -107,7 +107,7 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   column-gap: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   justify-content: center;
   color: var(--color-primary);
   font-size: 18px;
@@ -125,11 +125,10 @@ onMounted(() => {
   padding: 10px;
   font-size: 18px;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   color: var(--text-secondary);
   background-color: var(--text-primary);
   border-radius: var(--default-radius);
-  margin-bottom: 10px;
   transition: 0.3s;
 }
 

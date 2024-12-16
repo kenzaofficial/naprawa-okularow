@@ -90,7 +90,9 @@ const currentYear = computed(() => new Date().getFullYear());
   gap: 10px;
   margin-bottom: 10px;
 }
-
+.footer__address {
+  max-width: 250px;
+}
 .footer__address-link {
   font-size: 12px;
   transition: 0.3s;

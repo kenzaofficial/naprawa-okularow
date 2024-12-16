@@ -47,16 +47,15 @@ import FormClient from "~/components/forms/form-client/FormClient.vue";
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
 }
 .other-city__step {
-  margin-bottom: 30px;
+  background-color: var(--bg-primary);
+  border-radius: var(--default-radius);
+  padding: 20px 15px 30px;
   width: 100%;
 }
-.other-city__step--second {
-  padding: 20px;
-  border-radius: var(--default-radius);
-  background-color: var(--bg-primary);
-}
+
 .other-city__step-title {
   color: var(--color-primary);
   font-size: 24px;
@@ -99,6 +98,9 @@ import FormClient from "~/components/forms/form-client/FormClient.vue";
 }
 
 @media (min-width: 500px) {
+  .other-city {
+    padding: 40px 0;
+  }
   .other-city__inpost {
     display: flex;
     align-items: center;
@@ -107,20 +109,22 @@ import FormClient from "~/components/forms/form-client/FormClient.vue";
   .other-city__inpost-logo {
     max-width: 200px;
     width: 100%;
+    margin-bottom: 0;
   }
 }
 
 @media (min-width: 767px) {
+  .other-city {
+    padding: 60px 0;
+  }
   .other-city__content {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 40px;
+    align-items: stretch;
   }
   .other-city__inpost {
     flex-direction: column;
   }
   .other-city__inpost-logo {
-    margin: 0 0 20px;
     max-width: 200px;
     width: 100%;
   }
@@ -137,6 +141,9 @@ import FormClient from "~/components/forms/form-client/FormClient.vue";
   }
 }
 @media (min-width: 998px) {
+  .other-city__step {
+    padding: 30px;
+  }
   .other-city__inpost-logo {
     max-width: 300px;
     /* width: 100%; */

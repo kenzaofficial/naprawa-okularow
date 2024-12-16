@@ -10,30 +10,17 @@ defineProps({
   },
 });
 </script>
+
 <style>
 .title {
   position: relative;
   font-size: 28px;
+  padding: 0 5px 15px;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0.2em;
   text-align: center;
-  margin-bottom: 50px;
-}
-
-.title:before {
-  position: absolute;
-  content: "usługi";
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 60px;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  line-height: 1.5;
-  color: var(--bg-card);
-  text-transform: uppercase;
-  z-index: -1;
+  margin-bottom: 40px;
 }
 
 .title:after {

@@ -2,7 +2,7 @@
   <div class="hero" :class="{ 'hero--visible': isVisible }">
     <v-container class="hero__container">
       <div class="hero__text">
-        <h1 class="hero__title">Pilna Naprawa okularów</h1>
+        <h1 class="hero__title">Ekspresowa Naprawa okularów</h1>
         <h2 class="hero__subtitle">Naprawiamy wszystkie uszkodzeńia</h2>
         <p class="hero__description">Na terenie całej Polski</p>
         <div class="hero__contacts">

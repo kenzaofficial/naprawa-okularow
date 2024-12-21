@@ -3,16 +3,21 @@ export const head = {
     htmlAttrs: {
         lang: 'pl'
     },
+    link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap'
+        }
+      ],
     meta: [
         {
             name: "description",
-            content:
-                "Pilna Naprawa WSZYSTKICH uszkodzeń okularów. Szybko naprawiamy w całej Polsce – zapraszamy!",
+            content: "Naprawa okularów – Wrocław, Warszawa, Kraków, Gdańsk, Szczecin, Poznań, Łódź, Lublin, Katowice i cała Polska! Naprawiamy wszystkie uszkodzenia okularów. Odpowiadamy natychmiast!"
         },
         {
             name: "keywords",
             content:
-                "naprawa okularów Polska, naprawa okularów Poland, naprawa okularow Wroclaw, Serwis naprawy okularów, szybka naprawa okularów, pilna naprawa okularów",
+                "Naprawa okularów Wroclaw, Naprawa okularów, Serwis okularow, Ekpresowa naprawa okularów, szybka naprawa okularów, pilna naprawa okularów",
         },
         {
             name: "author",

@@ -6,8 +6,8 @@ export default defineNuxtConfig({
     "~/assets/css/variables.css",
     "~/assets/css/fonts.css",
   ],
-  srcDir: "src/",
 
+  srcDir: "src/",
   devtools: { enabled: false },
   plugins: ["~/plugins/vue-the-mask.js"],
 
@@ -15,5 +15,10 @@ export default defineNuxtConfig({
     head,
   },
 
+  gtag: {
+    id: 'G-LCD121PD2N',  // Ваш уникальный ID Google Analytics 4
+  },
+
   compatibilityDate: "2024-11-29",
+  modules: ["nuxt-gtag"],
 });

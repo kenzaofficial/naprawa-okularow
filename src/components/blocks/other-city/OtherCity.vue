@@ -1,6 +1,6 @@
 <template>
-  <div class="other-city">
-    <v-title text="Nie jesteś z Wrocławia?" />
+  <div class="other-city" id="InPost">
+    <v-title text="Wyślij okulary paczkomatem" />
     <v-container class="other-city__content">
       <div class="other-city__step other-city__step--first">
         <h4 class="other-city__step-title">Krok pierwszy:</h4>
@@ -10,12 +10,16 @@
       </div>
       <div class="other-city__step other-city__step--second">
         <h4 class="other-city__step-title">Krok drugi:</h4>
-        <div class="other-city__text">
+        <a
+          class="other-city__inpost-link other-city__text"
+          href="https://inpost.pl/SzybkieNadania/pl"
+          target="_blank"
+        >
           Zapakuj okulary i wyślij paczkomatem!
           <div class="other-city__inpost">
             <img
               class="other-city__inpost-logo"
-              src="./inpost.png"
+              src="/icons/inpost.png"
               alt="dostawa paczkomatem inPost"
               width="100"
             />
@@ -28,7 +32,7 @@
               <b>Wysyłka zwrotna jest bezpłatna!</b>
             </p>
           </div>
-        </div>
+        </a>
       </div>
     </v-container>
   </div>
@@ -63,17 +67,22 @@ import FormClient from "~/components/forms/form-client/FormClient.vue";
   margin-bottom: 20px;
 }
 
+.other-city__inpost-link {
+  padding: 20px 10px;
+  border-radius: var(--default-radius);
+  font-weight: 500;
+  line-height: 1.3;
+  font-size: 26px;
+  transition: 0.3s;
+}
+.other-city__inpost-link:hover {
+  background-color: var(--bg-tertiary);
+}
 .other-city__inpost {
   margin-top: 20px;
 }
 .other-city__inpost-logo {
   margin-bottom: 10px;
-}
-
-.other-city__text {
-  font-weight: 500;
-  line-height: 1.3;
-  font-size: 26px;
 }
 
 .other-city__inpost-address {
@@ -121,18 +130,18 @@ import FormClient from "~/components/forms/form-client/FormClient.vue";
     flex-direction: row;
     align-items: stretch;
   }
+
+  .other-city__inpost-link {
+    margin-top: 0;
+    text-align: left;
+    font-size: 24px;
+  }
   .other-city__inpost {
     flex-direction: column;
   }
   .other-city__inpost-logo {
     max-width: 200px;
     width: 100%;
-  }
-
-  .other-city__text {
-    margin-top: 0;
-    text-align: left;
-    font-size: 24px;
   }
   .other-city__inpost-address {
     text-align: left;
@@ -146,7 +155,6 @@ import FormClient from "~/components/forms/form-client/FormClient.vue";
   }
   .other-city__inpost-logo {
     max-width: 300px;
-    /* width: 100%; */
   }
 }
 </style>

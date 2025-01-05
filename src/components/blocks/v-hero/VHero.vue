@@ -8,7 +8,7 @@
         <div class="hero__contacts">
           <a class="hero__contact-link" href="tel:+48881554779">
             <img src="@/public/icons/telefon.svg" alt="telefon" width="20" />
-            +48 (815) 547-79</a
+            +48 881-554-779</a
           >
           <a
             class="hero__reviews-link"
@@ -105,14 +105,17 @@ onMounted(() => {
 
 .hero__contact-link {
   display: inline-flex;
+  padding: 10px 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--default-radius);
   align-items: center;
   column-gap: 5px;
   margin-bottom: 20px;
   justify-content: center;
+  background-color: var(--bg-secondary-opacity);
   color: var(--color-primary);
   font-size: 18px;
   transition: 0.3s;
-  text-decoration: underline;
 }
 
 .hero__contact-link:hover {

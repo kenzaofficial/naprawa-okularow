@@ -46,7 +46,7 @@ import VContainer from "~/components/atoms/v-container/VContainer.vue";
 
 const socials = ref([
   {
-    href: "https://www.facebook.com/share/1H7LsA1kHv/?mibextid=LQQJ4d",
+    href: "https://www.facebook.com/profile.php?id=61570599411843",
     icon: "/icons/facebook.svg",
     text: "facebook",
     alt: "facebook icon",
@@ -60,19 +60,19 @@ const socials = ref([
   {
     href: "https://wa.me/+48881554779",
     icon: "/icons/whatsapp.svg",
-    text: "+48 (815) 547-79",
+    text: "+48 881-554-779",
     alt: "whatsapp icon",
   },
   {
     href: "https://t.me/naprawa_okularow",
     icon: "/icons/telegram.svg",
-    text: "+48 (815) 547-79",
+    text: "+48 881-554-779",
     alt: "telegram icon",
   },
   {
     href: "#",
     icon: "/icons/viber.svg",
-    text: "+48 (815) 547-79",
+    text: "+48 881-554-779",
     alt: "viber icon",
   },
 ]);

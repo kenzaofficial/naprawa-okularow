@@ -7,7 +7,7 @@
       class="input__field"
       :placeholder="placeholder"
       v-if="type === 'tel'"
-      v-mask="'+48 (###) ###-###'"
+      v-mask="'+48 ###-###-###'"
       @input="$emit('update:modelValue', $event.target.value)"
     />
 
@@ -59,16 +59,19 @@ export default {
   font-size: 16px;
   border: 1px solid var(--text-primary);
   border-radius: var(--default-radius);
-  background-color: transparent;
+  background-color: var(--bg-primary);
   color: var(--text-primary);
 }
+
 .input__field:focus-within {
   border-color: var(--color-primary);
   outline: none;
 }
+
 .input:focus-within .input__label {
   color: var(--color-primary);
 }
+
 .input__field::placeholder {
   font-size: 12px;
   color: var(--text-primary-opacity);
@@ -77,9 +80,11 @@ export default {
 .input--error .input__field {
   border: 1px solid var(--color-error);
 }
+
 .input--error .input__label {
   color: var(--color-error);
 }
+
 .input__error {
   color: var(--color-error);
   font-size: 14px;
@@ -90,6 +95,7 @@ export default {
   align-items: center;
   gap: 5px;
 }
+
 .input__error::before {
   content: "!";
   color: var(--color-error);

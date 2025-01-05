@@ -1,7 +1,7 @@
 <template>
-  <div class="services">
+  <div class="services" id="Galeria">
     <v-container>
-      <v-title text="Nasze uslugi"/>
+      <v-title text="Galeria"/>
       <ul class="services__list">
         <li
           v-for="(serviceItem, index) in services"

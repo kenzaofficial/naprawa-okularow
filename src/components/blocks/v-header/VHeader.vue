@@ -2,6 +2,9 @@
   <header class="header">
     <v-container class="header__container">
       <v-logo :is-logo-full="isLogoFull" />
+      <a class="header__inpost-link" href="#InPost">
+        <img src="/public/icons/InPost.png" alt="Inpost Icon" width="50" />
+      </a>
       <button
         class="header__burger"
         :class="{ 'header__burger--active': isMenuOpen }"
@@ -27,8 +30,8 @@
         </ul>
       </nav>
       <a class="header__contact-link" href="tel:+48881554779">
-        <img src="@/public/icons/telefon.svg" alt="telefon" width="10" />
-        +48 (815) 547-79</a
+        <img src="/public/icons/telefon.svg" alt="telefon" width="10" />
+        +48 881-554-779</a
       >
       <ul class="header__social-list">
         <li
@@ -53,7 +56,7 @@ import VContainer from "@/components/atoms/v-container/VContainer.vue";
 const isLogoFull = ref(false);
 
 const updateLogoVisibility = () => {
-  isLogoFull.value = window.matchMedia("(min-width: 360px)").matches;
+  isLogoFull.value = window.matchMedia("(min-width: 450px)").matches;
 };
 
 onMounted(() => {
@@ -65,15 +68,11 @@ onUnmounted(() => {
   window.removeEventListener("resize", updateLogoVisibility); // Удаляем слушатель при уничтожении компонента
 });
 
-const menuItems = ref([
-  { link: "Paczkomat", href: "#" },
-  { link: "Prośba", href: "#" },
-  // { link: "Galeria", href: "#" },
-]);
+const menuItems = ref([{ link: "Galeria", href: "#Galeria" }]);
 
 const socials = ref([
   {
-    href: "https://www.facebook.com/share/1H7LsA1kHv/?mibextid=LQQJ4d",
+    href: "https://www.facebook.com/profile.php?id=61570599411843",
     icon: "./icons/facebook.svg",
     alt: "facebook",
   },
@@ -118,7 +117,7 @@ const toggleMenu = () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  column-gap: 10px;
+  column-gap: 8px;
 }
 
 .header__burger {
@@ -223,6 +222,7 @@ const toggleMenu = () => {
 .header__social-list {
   display: flex;
   align-items: center;
+  gap: 2px;
 }
 
 .header__contact-link {
@@ -253,14 +253,11 @@ const toggleMenu = () => {
   .header__social-link img {
     width: 25px;
   }
-  .header__social-link {
-    padding: 5px;
-  }
 }
 
 @media (min-width: 600px) {
   .header__social-list {
-    gap: 15px;
+    gap: 8px;
   }
   .header__contact-link {
     display: flex;
@@ -271,8 +268,8 @@ const toggleMenu = () => {
   .header {
     padding: 10px 0;
   }
-  .header__contact-link {
-    font-size: 18px;
+  .header__inpost-link img {
+    width: 70px;
   }
 }
 
@@ -297,6 +294,7 @@ const toggleMenu = () => {
   }
 
   .header__contact-link {
+    padding: 5px;
     font-size: 20px;
   }
 

@@ -68,7 +68,7 @@ export default {
       if (!form.value.phoneNumber.trim()) {
         errorPhoneNumberText.value = "Pole jest wymagane";
         hasError = true;
-      } else if (form.value.phoneNumber.trim().length !== 17) {
+      } else if (form.value.phoneNumber.trim().length !== 15) {
         errorPhoneNumberText.value =
           "Numer telefonu musi mieć dokładnie 11 cyfr";
         hasError = true;

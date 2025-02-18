@@ -2,7 +2,7 @@
   <div class="hero" :class="{ 'hero--visible': isVisible }">
     <v-container class="hero__container">
       <div class="hero__text">
-        <h1 class="hero__title">Ekspresowa Naprawa okularów</h1>
+        <h1 class="hero__title">Pilna Naprawa okularów</h1>
         <h2 class="hero__subtitle">Naprawiamy wszystkie uszkodzeńia</h2>
         <p class="hero__description">Na terenie całej Polski</p>
         <div class="hero__contacts">
@@ -29,8 +29,13 @@
             class="hero__address-link"
             href="https://maps.app.goo.gl/KUjSfp7xy2pU284F8"
             target="_blank"
-            >Wroclaw, Centrum Handlowe Borek. ul. Hallera 52. lokal na przeciwko
-            RESERVED Pn-Sb. 9.00-21.00
+            >Wrocław, Centrum Handlowe Borek. ul.Hallera 52. Pn-Sb. 9.00-21.00
+          </a>
+          <a
+            class="hero__address-link"
+            href="https://maps.app.goo.gl/mE9YzPnjoK1cterV6"
+            target="_blank"
+            >Wrocław, Centrum Handlowe E.Leclerc ul.zakładowa 2-4 Pn-Sb. 10.00 - 18.00
           </a>
         </div>
       </div>
@@ -102,6 +107,10 @@ onMounted(() => {
   font-size: 18px;
   margin-bottom: 30px;
 }
+.hero__contacts {
+  display: grid;
+  row-gap: 20px;
+}
 
 .hero__contact-link {
   display: inline-flex;
@@ -110,7 +119,6 @@ onMounted(() => {
   border-radius: var(--default-radius);
   align-items: center;
   column-gap: 5px;
-  margin-bottom: 20px;
   justify-content: center;
   background-color: var(--bg-secondary-opacity);
   color: var(--color-primary);
@@ -128,7 +136,6 @@ onMounted(() => {
   padding: 10px;
   font-size: 18px;
   max-width: 400px;
-  margin: 0 auto 20px;
   color: var(--text-secondary);
   background-color: var(--text-primary);
   border-radius: var(--default-radius);

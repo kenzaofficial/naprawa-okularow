@@ -15,7 +15,8 @@
           href="https://inpost.pl/SzybkieNadania/pl"
           target="_blank"
         >
-          Zapakuj okulary i wyślij paczkomatem!
+          Po rozmowie z menedżerem zapakuj okulary, włóż do etui informację z
+          imieniem i numerem telefonu i wyślij paczkomatem inPost!
           <div class="other-city__inpost">
             <img
               class="other-city__inpost-logo"
@@ -29,7 +30,6 @@
               <span>
                 UWAGA !!! Proszę umieścić swój numer telefonu w etui.
               </span>
-              <b>Wysyłka zwrotna jest bezpłatna!</b>
             </p>
           </div>
         </a>

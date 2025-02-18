@@ -9,7 +9,16 @@
           href="https://maps.app.goo.gl/KUjSfp7xy2pU284F8"
           target="_blank"
           >Centrum Handlowe Borek. ul. Hallera 52. lokal na przeciwko RESERVED
-          Pn-Sb. 9.00-21.00
+          <b>Pn-Sb. 9.00-21.00</b>
+        </a>
+        <a
+          class="footer__address-link"
+          href="https://maps.app.goo.gl/mE9YzPnjoK1cterV6"
+          target="_blank"
+          >Wrocław, Centrum Handlowe E.Leclerc ul.zakładowa 2-4 <b>
+            Pn-Sb. 10.00 -
+            18.00
+          </b>
         </a>
       </div>
       <div class="footer__contacts">
@@ -90,16 +99,24 @@ const currentYear = computed(() => new Date().getFullYear());
   gap: 10px;
   margin-bottom: 10px;
 }
+
 .footer__address {
   max-width: 250px;
 }
+
 .footer__address-link {
   font-size: 12px;
   transition: 0.3s;
 }
+
+.footer__address-link:not(:last-child) {
+  margin-bottom: 20px;
+}
+
 .footer__contacts {
   flex-shrink: 0;
 }
+
 .footer__contacts-title,
 .footer__address-title {
   display: inline-block;
@@ -175,7 +192,7 @@ const currentYear = computed(() => new Date().getFullYear());
   }
   .footer__list {
     grid-template-columns: repeat(3, auto);
-    gap: 10px 30px;
+    gap: 25px;
   }
 
   .footer__container {

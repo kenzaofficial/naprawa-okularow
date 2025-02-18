@@ -6,9 +6,29 @@
         :error="errorPhoneNumberText"
         class="form-client__field"
         v-model="form.phoneNumber"
-        label="Telefon"
+        label="Telefon*"
         type="tel"
         placeholder="Twój numer telefonu"
+      />
+      <v-input
+        :error="errorFullNameText"
+        class="form-client__field"
+        v-model="form.fullName"
+        label="Imię i Nazwisko*"
+        placeholder="Twoje Imię i Nazwisko"
+      />
+      <v-input
+        :error="errorInpostNumberText"
+        class="form-client__field"
+        v-model="form.inpostNumber"
+        label="Numer paczkomatu Inpost*"
+        placeholder="Wpisz numer pazckomatu Inpost"
+      />
+      <v-input
+        class="form-client__field"
+        v-model="form.city"
+        label="Miasto"
+        placeholder="Twoje Miasto"
       />
       <v-textarea
         class="form-client__field"
@@ -51,11 +71,16 @@ export default {
     const form = ref({
       phoneNumber: "",
       message: "",
+      city: "",
+      fullName: "",
+      inpostNumber: "",
     });
     const photos = ref([]);
     const error = ref(""); // Реактивное свойство для ошибки
     const ErrorPhotoUpload = ref(""); // Реактивное свойство для ошибки
     const errorPhoneNumberText = ref(""); // Реактивное свойство для ошибки
+    const errorFullNameText = ref(""); // Реактивное свойство для ошибки
+    const errorInpostNumberText = ref(""); // Реактивное свойство для ошибки
 
     const handleFileUpload = (files) => {
       photos.value = files;
@@ -64,6 +89,14 @@ export default {
     const validateAndSend = () => {
       let hasError = false; // Флаг, указывающий, есть ли ошибки
 
+      if (!form.value.fullName.trim()) {
+        errorFullNameText.value = "Pole jest wymagane";
+        hasError = true;
+      }
+      if (!form.value.inpostNumber.trim()) {
+        errorInpostNumberText.value = "Pole jest wymagane";
+        hasError = true;
+      }
       // Проверка номера телефона
       if (!form.value.phoneNumber.trim()) {
         errorPhoneNumberText.value = "Pole jest wymagane";
@@ -95,7 +128,7 @@ export default {
     const sendMessage = async () => {
       const token = "8106494538:AAGxISQenkDbjtfISzIeYuNwXz4FgIpng-Y";
       const chatId = "-4547095465";
-      const text = `Телефон: ${form.value.phoneNumber}\nСообщение: ${form.value.message}`;
+      const text = `Телефон: ${form.value.phoneNumber}\nИмя и Фамилия: ${form.value.fullName}\nПачкомат: ${form.value.inpostNumber}\nСообщение: ${form.value.message}\nГород: ${form.value.city}`;
       try {
         await axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
           chat_id: chatId,
@@ -133,6 +166,8 @@ export default {
       validateAndSend,
       errorPhoneNumberText,
       ErrorPhotoUpload,
+      errorFullNameText,
+      errorInpostNumberText,
     };
   },
 };

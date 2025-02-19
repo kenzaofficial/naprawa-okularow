@@ -1,5 +1,5 @@
 <template>
-  <v-hero />
+  <v-hero city="Wrocław" />
   <other-city/>
   <v-services />
 </template>

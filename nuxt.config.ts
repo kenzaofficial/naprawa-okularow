@@ -19,5 +19,5 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2024-11-29",
-  modules: ["nuxt-gtag"],
+  modules: ["nuxt-gtag", "@nuxtjs/sitemap"],
 });

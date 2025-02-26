@@ -17,7 +17,8 @@ export default defineNuxtConfig({
   gtag: {
     id: 'G-LCD121PD2N',  // Ваш уникальный ID Google Analytics 4
   },
-
+  
   compatibilityDate: "2024-11-29",
-  modules: ["nuxt-gtag", "@nuxtjs/sitemap"],
+  modules: ["nuxt-gtag"],
+
 });

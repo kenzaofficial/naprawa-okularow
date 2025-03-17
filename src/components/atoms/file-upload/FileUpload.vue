@@ -4,7 +4,7 @@
       Dodaj zdjęcia okularów
     </label>
     <span v-if="error" class="file-upload__error">{{ error }}</span>
-    <input id="file-upload" type="file" @change="onFileChange" multiple />
+    <input accept=".png, .jpeg, .jpg" id="file-upload" type="file" @change="onFileChange" multiple />
     <div v-if="filePreviews.length" class="file-upload__previews">
       <div
         v-for="(file, index) in filePreviews"

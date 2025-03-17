@@ -38,7 +38,7 @@
       <file-upload
         :error="errorPhotoUpload"
         class="form-client__field"
-        @files-uploaded="handleFileUpload"
+        @change-photos="photos = $event"
       />
       <v-button :disabled="loading" type="submit" text="Aplikuj do nas" />
     </fieldset>
@@ -85,10 +85,6 @@ export default {
     const errorPhoneNumberText = ref(""); // Реактивное свойство для ошибки
     const errorFullNameText = ref(""); // Реактивное свойство для ошибки
     const errorInpostNumberText = ref(""); // Реактивное свойство для ошибки
-
-    const handleFileUpload = (files) => {
-      photos.value = files;
-    };
 
     const resetForm = () => {
       form.value.phoneNumber = "";
@@ -180,7 +176,6 @@ export default {
       loading,
       photos,
       error,
-      handleFileUpload,
       validateAndSend,
       errorPhoneNumberText,
       errorPhotoUpload,

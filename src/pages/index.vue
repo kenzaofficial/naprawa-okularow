@@ -2,13 +2,6 @@
   <v-hero city="Wrocław" />
   <other-city/>
   <v-services />
-  <modal-window
-    :is-open="isOpen"
-    button-text="Jasne"
-    heading="Twoje zgłoszenie zostało wysłane!"
-    text="Skontaktujemy się z Tobą w najbliższym czasie. Dziękujemy za zaufanie!"
-    @close="isOpen = false"
-  />
 </template>
 
 <script setup lang="ts">

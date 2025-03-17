@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="validateAndSend" class="form-client">
+  <form :key="form.resetKey" @submit.prevent="validateAndSend" class="form-client">
     <fieldset class="form-client__fieldset">
       <legend class="form-client__legend">{{ title }}</legend>
       <v-input
@@ -36,7 +36,7 @@
         placeholder="Tutaj możesz opisać podział okularów"
       />
       <file-upload
-        :error="ErrorPhotoUpload"
+        :error="errorPhotoUpload"
         class="form-client__field"
         @files-uploaded="handleFileUpload"
       />
@@ -67,23 +67,35 @@ export default {
       default: "fill the form",
     },
   },
-  setup() {
+  emits: ['sent'],
+  setup(_, { emit }) {
     const form = ref({
       phoneNumber: "",
       message: "",
       city: "",
       fullName: "",
       inpostNumber: "",
+      resetKey: 0,
     });
     const photos = ref([]);
     const error = ref(""); // Реактивное свойство для ошибки
-    const ErrorPhotoUpload = ref(""); // Реактивное свойство для ошибки
+    const errorPhotoUpload = ref(""); // Реактивное свойство для ошибки
     const errorPhoneNumberText = ref(""); // Реактивное свойство для ошибки
     const errorFullNameText = ref(""); // Реактивное свойство для ошибки
     const errorInpostNumberText = ref(""); // Реактивное свойство для ошибки
 
     const handleFileUpload = (files) => {
       photos.value = files;
+    };
+
+    const resetForm = () => {
+      form.value.phoneNumber = "";
+      form.value.message = "";
+      form.value.city = "";
+      form.value.fullName = "";
+      form.value.inpostNumber = "";
+      form.value.resetKey++;
+      photos.value = [];
     };
 
     const validateAndSend = () => {
@@ -111,16 +123,14 @@ export default {
 
       // Проверка наличия фотографий
       if (!photos.value.length) {
-        ErrorPhotoUpload.value = "Musisz dodać co najmniej jedno zdjęcie";
+        errorPhotoUpload.value = "Musisz dodać co najmniej jedno zdjęcie";
         hasError = true;
       } else {
-        ErrorPhotoUpload.value = ""; // Очищаем ошибку, если фотографии загружены
+        errorPhotoUpload.value = ""; // Очищаем ошибку, если фотографии загружены
       }
 
       // Если есть ошибки, не отправляем форму
-      if (hasError) {
-        return;
-      }
+      if (hasError) return;
 
       sendMessage();
     };
@@ -129,27 +139,31 @@ export default {
       const token = "8106494538:AAGxISQenkDbjtfISzIeYuNwXz4FgIpng-Y";
       const chatId = "-4547095465";
       const text = `Телефон: ${form.value.phoneNumber}\nИмя и Фамилия: ${form.value.fullName}\nПачкомат: ${form.value.inpostNumber}\nСообщение: ${form.value.message}\nГород: ${form.value.city}`;
+
       try {
-        await axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
-          chat_id: chatId,
-          text: text,
-        });
-        for (const photo of photos.value) {
+        const requests = [];
+        requests.push(
+          axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
+            chat_id: chatId,
+            text: text,
+          }
+        ));
+        
+        photos.value.forEach((photo) => {
           const formData = new FormData();
           formData.append("chat_id", chatId);
           formData.append("photo", photo);
-
-          await axios.post(
-            `https://api.telegram.org/bot${token}/sendPhoto`,
-            formData,
-            {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }
+          requests.push(
+            axios.post(
+              `https://api.telegram.org/bot${token}/sendPhoto`,
+              formData,
+              { headers: { "Content-Type": "multipart/form-data" } }
+            )
           );
-        }
-        alert("Сообщение и фотографии отправлены!");
+        });
+        await Promise.all(requests);
+        resetForm();
+        emit('sent');
       } catch (error) {
         console.error(
           "Ошибка при отправке:",
@@ -165,7 +179,7 @@ export default {
       handleFileUpload,
       validateAndSend,
       errorPhoneNumberText,
-      ErrorPhotoUpload,
+      errorPhotoUpload,
       errorFullNameText,
       errorInpostNumberText,
     };

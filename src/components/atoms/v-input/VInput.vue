@@ -1,25 +1,19 @@
 <template>
   <div class="input" :class="{ 'input--error': error }">
-    <label class="input__label" for="input">{{ label }}</label>
-    <input
-      id="input"
-      :type="type"
-      class="input__field"
-      :placeholder="placeholder"
-      v-if="type === 'tel'"
-      v-mask="'+48 ###-###-###'"
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
-
-    <input
-      v-else
-      id="input"
-      :type="type"
-      class="input__field"
-      :placeholder="placeholder"
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
-
+    <label class="input__label">
+      {{ label }}
+      <input
+        v-if="type === 'tel'"
+        v-mask="'+48 ###-###-###'"
+        v-bind="attrs"
+        @input="$emit('update:modelValue', $event.target.value)"
+      />
+      <input
+        v-else
+        v-bind="attrs"
+        @input="$emit('update:modelValue', $event.target.value)"
+      />
+    </label>
     <span v-if="error" class="input__error">{{ error }}</span>
   </div>
 </template>
@@ -38,6 +32,15 @@ export default {
     label: String,
     error: String,
   },
+  computed: {
+    attrs() {
+      return {
+        type: this.type,
+        placeholder: this.placeholder,
+        class: 'input__field',
+      };
+    }
+  }
 };
 </script>
 

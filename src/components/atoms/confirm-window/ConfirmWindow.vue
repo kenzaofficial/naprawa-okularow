@@ -1,11 +1,20 @@
 <template>
   <client-only>
     <teleport to="body">
-      <div class="confirm-window" :class="{ 'confirm-window--open': isOpen, 'confirm-window--closed': !isOpen }">
+      <div
+        class="confirm-window"
+        :class="[
+          `confirm-window--${mode}`, 
+          {
+            'confirm-window--open': isOpen,
+            'confirm-window--closed': !isOpen,
+          }
+        ]"
+      >
         <div class="confirm-window__content">
           <h2 class="confirm-window__heading" v-if="heading">{{ heading }}</h2>
           <p class="confirm-window__text" v-if="text">{{ text }}</p>
-          <v-button @click="$emit('close')" :text="buttonText" />
+          <v-button class="confirm-window__button" @click="$emit('close')" :text="buttonText" />
         </div>
       </div>
     </teleport>
@@ -21,6 +30,10 @@ export default {
     heading: String,
     text: String,
     buttonText: String,
+    mode: {
+      type: String,
+      default: 'default', // default, error
+    },
   },
   components: { VButton },
   emits: ['close'],
@@ -74,6 +87,11 @@ export default {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.confirm-window--error .confirm-window__content {
+  background: rgb(255, 88, 88);
+  color: white;
+}
+
 .confirm-window__heading {
   font-size: 20px;
   margin-bottom: 10px;
@@ -82,5 +100,13 @@ export default {
 .confirm-window__text {
   margin: 20px 0;
   line-height: 24px;
+}
+
+.confirm-window--error .confirm-window__button {
+  background: white;
+}
+
+.confirm-window--error .confirm-window__button:hover {
+  color: rgb(255, 88, 88);
 }
 </style>

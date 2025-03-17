@@ -40,7 +40,7 @@
         class="form-client__field"
         @files-uploaded="handleFileUpload"
       />
-      <v-button type="submit" text="Aplikuj do nas" />
+      <v-button :disabled="loading" type="submit" text="Aplikuj do nas" />
     </fieldset>
   </form>
 </template>
@@ -68,6 +68,7 @@ export default {
     },
   },
   emits: ['sent'],
+
   setup(_, { emit }) {
     const form = ref({
       phoneNumber: "",
@@ -78,6 +79,7 @@ export default {
       resetKey: 0,
     });
     const photos = ref([]);
+    const loading = ref(false);
     const error = ref(""); // Реактивное свойство для ошибки
     const errorPhotoUpload = ref(""); // Реактивное свойство для ошибки
     const errorPhoneNumberText = ref(""); // Реактивное свойство для ошибки
@@ -141,6 +143,7 @@ export default {
       const text = `Телефон: ${form.value.phoneNumber}\nИмя и Фамилия: ${form.value.fullName}\nПачкомат: ${form.value.inpostNumber}\nСообщение: ${form.value.message}\nГород: ${form.value.city}`;
 
       try {
+        loading.value = true;
         const requests = [];
         requests.push(
           axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -165,15 +168,16 @@ export default {
         resetForm();
         emit('sent');
       } catch (error) {
-        console.error(
-          "Ошибка при отправке:",
-          error.response ? error.response.data : error.message
-        );
-        alert("Ошибка при отправке.");
+        emit('error');
+        console.error("Error:", error.response ? error.response.data : error.message);
+      } finally {
+        loading.value = false;
       }
     };
+
     return {
       form,
+      loading,
       photos,
       error,
       handleFileUpload,

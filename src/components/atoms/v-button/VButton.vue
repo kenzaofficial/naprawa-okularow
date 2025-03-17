@@ -1,5 +1,10 @@
 <template>
-  <button :type="type" class="button" :class="{ 'button--wide': isWide }">
+  <button
+    :type="type"
+    class="button"
+    :class="{ 'button--wide': isWide, 'button--disabled': disabled }"
+    :disabled="disabled"
+  >
     {{ text }}
   </button>
 </template>
@@ -19,6 +24,10 @@ defineProps({
     type: String,
     default: "button",
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 </script>
@@ -50,6 +59,13 @@ defineProps({
 
 .button--wide {
   width: 100%;
+}
+
+.button--disabled,
+.button--disabled:hover {
+  cursor: not-allowed;
+  background-color: lightgray;
+  color: #000;
 }
 
 @media (min-width: 767px) {

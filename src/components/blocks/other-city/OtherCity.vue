@@ -6,13 +6,15 @@
         <h4 class="other-city__step-title">Krok pierwszy:</h4>
         <form-client
           title="Wypełnij formularz, a my skontaktujemy się z Tobą jak najszybciej!"
-          @sent="isOpen = true"
+          @sent="onSent"
+          @error="onError"
         />
         <confirm-window
           :is-open="isOpen"
+          :mode="mode"
           button-text="Jasne"
-          heading="Twoje zgłoszenie zostało wysłane!"
-          text="Skontaktujemy się z Tobą w najbliższym czasie. Dziękujemy za zaufanie!"
+          :heading="heading"
+          :text="text"
           @close="isOpen = false"
         />
       </div>
@@ -45,6 +47,7 @@
     </v-container>
   </div>
 </template>
+
 <script setup>
 import VContainer from "~/components/atoms/v-container/VContainer.vue";
 import VTitle from "~/components/atoms/v-title/VTitle.vue";
@@ -53,6 +56,23 @@ import ConfirmWindow from "~/components/atoms/confirm-window/ConfirmWindow.vue";
 import { ref } from "vue";
 
 const isOpen = ref(false);
+const heading = ref('');
+const text = ref('');
+const mode = ref('default');
+
+const onSent = () => {
+  mode.value = 'default';
+  heading.value = 'Twoje zgłoszenie zostało wysłane!';
+  text.value = 'Skontaktujemy się z Tobą w najbliższym czasie. Dziękujemy za zaufanie!';
+  isOpen.value = true;
+};
+
+const onError = () => {
+  mode.value = 'error';
+  heading.value = 'Ups, coś poszło nie tak!';
+  text.value = 'Spróbuj ponownie lub skontaktuj się z nami telefonicznie.';
+  isOpen.value = true;
+};
 </script>
 
 <style>

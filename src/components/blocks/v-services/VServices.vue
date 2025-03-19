@@ -2,15 +2,11 @@
   <div class="services" id="Galeria">
     <v-container>
       <v-title text="Galeria"/>
-      <ul class="services__list">
-        <li
-          v-for="(serviceItem, index) in services"
-          :key="index"
-          class="services__item"
-        >
-          <service-card :img="serviceItem" />
-        </li>
-      </ul>
+      <v-slider :slides="services">
+        <template #default="{ slide }">
+          <service-card :img="slide" />
+        </template>
+      </v-slider>
     </v-container>
   </div>
 </template>
@@ -19,6 +15,7 @@
 import VTitle from "~/components/atoms/v-title/VTitle.vue";
 import VContainer from "~/components/atoms/v-container/VContainer.vue";
 import ServiceCard from "../../atoms/service-card/ServiceCard.vue";
+import VSlider from "~/components/organisms/v-slider/VSlider.vue";
 import example01 from "./images/example_01.jpg";
 import example02 from "./images/example_02.jpg";
 import example03 from "./images/example_03.jpg";
@@ -37,11 +34,5 @@ const services = ref([
 <style>
 .services {
   padding: 20px 0;
-}
-
-.services__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
 }
 </style>

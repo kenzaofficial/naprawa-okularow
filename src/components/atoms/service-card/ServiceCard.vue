@@ -1,8 +1,5 @@
 <template>
   <div class="service-card">
-    <!-- <div class="service-card__text">
-      <h4 class="service-card__title">{{ img.text }}</h4>
-    </div> -->
     <img class="service-card__img" :src="img.path" alt="repair case example" />
   </div>
 </template>

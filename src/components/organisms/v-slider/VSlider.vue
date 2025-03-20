@@ -114,6 +114,17 @@ defineProps({
   display: block;
 }
 
+.v-slider .swiper-slide {
+  opacity: 0.3;
+  transform: scale(0.7) !important;
+  transition: all 0.2s linear !important;
+}
+
+.v-slider .swiper-slide-active {
+  transform: scale(1) !important;
+  opacity: 1;
+}
+
 .v-slider__prev-arrow,
 .v-slider__next-arrow  {
   position: absolute;

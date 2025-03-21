@@ -1,5 +1,5 @@
 <template>
-  <div class="v-slider">
+  <div class="v-slider" :class="{ 'v-slider--ready': isReady }">
     <swiper
       :effect="'coverflow'"
       :grabCursor="true"
@@ -18,6 +18,7 @@
       :navigation="{ nextEl: '.v-slider__next-arrow', prevEl: '.v-slider__prev-arrow' }"
       class="v-slider__container"
       @slide-change="onChange"
+      @swiper="isReady = true"
     >
       <swiper-slide v-for="(slide, index) in slides" :key="index">
         <slot :slide="slide" :index="index" />
@@ -49,6 +50,7 @@ import 'swiper/css/effect-coverflow';
 
 const slidesPerView = ref(1);
 const activeIndex = ref(0);
+const isReady = ref(false);
 
 const onChange = (data) => {
   activeIndex.value = data.activeIndex;
@@ -83,12 +85,6 @@ defineProps({
 </script>
 
 <style>
-.v-slider {
-  position: relative;
-  width: 90%;
-  margin: 0 auto;
-}
-
 @keyframes opacity {
   0% {
     opacity: 0;
@@ -103,10 +99,21 @@ defineProps({
   }
 }
 
+.v-slider {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  opacity: 0;
+}
+
+.v-slider--ready {
+  opacity: 1;
+  animation: opacity 0.5s linear;
+}
+
 .v-slider__container {
   border-radius: 10px;
   overflow: hidden;
-  animation: opacity 0.5s linear;
 }
 
 .slide-image {

@@ -29,8 +29,30 @@ defineProps({
 </script>
 
 <style>
+@media screen and (min-width: 1024px) {
+  .shop-list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+}
+
 .shop-list__item {
+  width: 100%;
   border-bottom: 1px solid #5e5e5e;
+}
+
+@media screen and (min-width: 1024px) {
+  .shop-list__item {
+    padding-right: 15px;
+    border-bottom: none;
+  }
+
+  .shop-list__item:nth-child(2n) {
+    border-left: 1px solid #444;
+    padding-left: 15px;
+    padding-right: 0;
+  }
 }
 
 .shop-list__item--last {

@@ -2,12 +2,13 @@
   <v-hero city="Wrocław" />
   <other-city/>
   <v-services />
+  <location-block />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta, useHead } from "#imports";
 
-import ModalWindow from "~/components/atoms/confirm-window/ConfirmWindow.vue";
+import LocationBlock from "~/components/blocks/location-block/LocationBlock.vue";
 import VHero from "~/components/blocks/v-hero/VHero.vue";
 import OtherCity from "~/components/blocks/other-city/OtherCity.vue";
 import VServices from "~/components/blocks/v-services/VServices.vue";
@@ -15,8 +16,6 @@ import VServices from "~/components/blocks/v-services/VServices.vue";
 definePageMeta({
   layout: "default",
 });
-
-const isOpen = ref(false);
 
 useHead({
   title: "Naprawa Okularów Wrocław - Serwis Okularów",

@@ -8,7 +8,7 @@
           <p class="shop-item__address">{{ address }}</p>
           <span class="shop-item__phone">{{ phone }}</span>
         </div>
-        <span class="shop-item__state" :class="{ 'shop-item__state--opened': state === 'Открыто' }">
+        <span class="shop-item__state" :class="{ 'shop-item__state--opened': state === 'Otwarte' }">
           {{ state }}
         </span>
         <p v-if="additionalDataForState" class="shop-item__open-time">·
@@ -23,7 +23,7 @@
         <span class="shop-item__route-icon">
           <svg-route />
         </span>
-        <span class="shop-item__route">Маршрут</span>
+        <span class="shop-item__route">Trasa</span>
       </a>
     </div>
   </div>
@@ -68,14 +68,18 @@ const getTimeInformation = () => {
   return { openingTime: from, closingTime: to, currentHour };
 };
 
-const getDay = (day = 'today') => {
+const getWorkingDay = (day = 'today') => {
   const date = new Date();
-  const days = Object.keys(props.openingHours);
-  const currentDay = date.getDay();
+  let days = Object.keys(props.openingHours);
+  let currentDay = date.getDay();
   if (day !== 'next') return days[currentDay];
 
-  const nextDay = currentDay === 6 ? 0 : currentDay + 1;
-  return days[nextDay];
+  // перемещаем все пройденные дни недели в конец массива, чтобы найти ближайший рабочий день
+  days.splice(0, currentDay, ...days.slice(0, currentDay + 1));
+  // ищем ближайший рабочий день
+  return days.find((dayName) => {
+    return props.openingHours[dayName].from !== null;
+  });
 };
 
 const formatHour = (hour) => `${String(hour).padStart(2, '0')}:00`;
@@ -83,31 +87,29 @@ const formatHour = (hour) => `${String(hour).padStart(2, '0')}:00`;
 const state = computed(() => {
   const { openingTime, closingTime, currentHour } = getTimeInformation();
 
-  if (currentHour >= openingTime && currentHour < closingTime) return 'Открыто';
-  return 'Закрыто';
+  if (currentHour >= openingTime && currentHour < closingTime) return 'Otwarte';
+  return 'Zamknięte';
 });
 
 const additionalDataForState = computed(() => {
   const { closingTime, currentHour } = getTimeInformation();
 
-  if (state.value === 'Открыто') return `Закроется в ${formatHour(closingTime)}`;
+  if (state.value === 'Otwarte') return `Zamknięcie o ${formatHour(closingTime)}`;
 
   if (currentHour >= closingTime) {
-    const nextDay = getDay('next');
-    return `Откроется в ${formatHour(props.openingHours[nextDay].from)} (${nextDay})`
+    const nextDay = getWorkingDay('next');
+    return `Otwarcie o ${formatHour(props.openingHours[nextDay].from)} (${nextDay})`
   }
 
-  const today = getDay('today');
-  return `Откроется в ${formatHour(props.openingHours[today].from)} (${today})`
+  const today = getWorkingDay('today');
+  return `Otwarcie o ${formatHour(props.openingHours[today].from)} (${today})`
 });
 </script>
 
 <style scoped>
 .shop-item {
   width: 100%;
-  margin: 20px auto;
   padding: 15px 5px;
-  border-bottom: 1px solid #5e5e5e;
 }
 
 .shop-item__store {

@@ -4,8 +4,12 @@ export const head = {
     },
     link: [
         {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap'
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap'
+        },
+        {
+            rel: 'stylesheet',
+            href: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
         }
       ],
     meta: [

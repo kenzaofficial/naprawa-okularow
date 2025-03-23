@@ -21,5 +21,21 @@ export const head = {
             name: "robots",
             content: "index, follow",
         },
+        {
+            property: 'og:image',
+            content: 'https://naprawa-okularow.pl/og.jpg',
+        },
+        {
+            property: 'og:image:width',
+            content: '813',
+        },
+        {
+            property: 'og:image:height',
+            content: '579',
+        },
+        {
+            property: 'og:title',
+            content: 'Naprawa Okularów - Profesjonalna Naprawa we Wrocławiu',
+        },
     ],
 }

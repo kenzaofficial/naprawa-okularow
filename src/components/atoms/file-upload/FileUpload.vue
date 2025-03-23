@@ -133,6 +133,7 @@ onBeforeUnmount(() => {
   flex-direction: column;
   align-items: center;
   max-width: 100px;
+  margin-top: 4px;
 }
 
 .file-upload__preview img {
@@ -153,12 +154,11 @@ onBeforeUnmount(() => {
   position: absolute;
   top: -8px;
   right: -8px;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background-color: red;
-  opacity: 0;
-  transition: opacity 0.2s;
+  transition: transform 0.1s linear;
 
   &::before,
   &::after {
@@ -167,7 +167,7 @@ onBeforeUnmount(() => {
     top: 50%;
     left: 50%;
     width: 2px;
-    height: 10px;
+    height: 12px;
     background-color: white;
   }
 
@@ -181,7 +181,7 @@ onBeforeUnmount(() => {
 }
 
 .file-upload__preview:hover .file-upload__delete {
-  opacity: 1;
+  transform: scale(1.3);
 }
 
 .file-upload__name {

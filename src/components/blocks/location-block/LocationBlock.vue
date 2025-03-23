@@ -1,7 +1,15 @@
 <template>
   <section class="location-block">
-    <shop-list :list="shopList" />
-    <v-map :markers="markers" :center-coordinates="centerCoordinates" />
+    <shop-list
+      :list="shopList"
+      @hover-start="activeMarker = $event"
+      @hover-end="activeMarker = ''"
+    />
+    <v-map
+      :markers="markers"
+      :active-marker="activeMarker"
+      :center-coordinates="centerCoordinates"
+    />
   </section>
 </template>
 
@@ -10,9 +18,16 @@ import ShopList from "../../organisms/shop-list/ShopList.vue";
 import VMap from "~/components/organisms/v-map/VMap.vue";
 
 const markers = ref([
-  { lat: 51.088018738902036, lng: 16.99839199590372, text: 'aleja Generała Józefa Hallera 52' },
-  { lat: 51.130706250056114, lng: 17.040409014874797, text: 'Zakładowa 2/4' },
+  {
+    lat: 51.088018738902036,
+    lng: 16.99839199590372,
+    id: 'hallera',
+    text: 'aleja Generała Józefa Hallera 52'
+  },
+  { lat: 51.130706250056114, lng: 17.040409014874797, id: 'zakladowa', text: 'Zakładowa 2/4' },
 ]);
+
+const activeMarker = ref('');
 
 const centerCoordinates = ref({ lat: 51.10916321407935, lng: 17.032055777865775 });
 
@@ -21,6 +36,7 @@ const shopList = ref([
     letterOption: 'A',
     name: 'Pilna naprawa okularów',
     address: 'aleja Generała Józefa Hallera 52',
+    id: 'hallera',
     phone: '881 554 779',
     openingHours: {
       nd: { from: null, to: null },
@@ -38,6 +54,7 @@ const shopList = ref([
     name: 'Pilna naprawa okularów',
     address: 'Zakładowa 2/4',
     phone: '452 928 540',
+    id: 'zakladowa',
     openingHours: {
       nd: { from: null, to: null },
       pn: { from: 10, to: 17 },

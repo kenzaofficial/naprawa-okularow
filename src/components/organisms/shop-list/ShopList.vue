@@ -4,6 +4,8 @@
       v-for="(shop, index) of list"
       class="shop-list__item"
       :class="{ 'shop-list__item--last': index === list.length - 1 }"
+      @mouseover="$emit('hover-start', shop.id)"
+      @mouseleave="$emit('hover-end', shop.id)"
     >
       <shop-item
         :letter-option="shop.letterOption"
@@ -39,7 +41,14 @@ defineProps({
 
 .shop-list__item {
   width: 100%;
+  padding: 0 10px;
   border-bottom: 1px solid #5e5e5e;
+  transition: 0.2s background-color linear;
+  cursor: pointer;
+}
+
+.shop-list__item:hover {
+  background-color: #222;
 }
 
 @media screen and (min-width: 1024px) {
@@ -51,7 +60,6 @@ defineProps({
   .shop-list__item:nth-child(2n) {
     border-left: 1px solid #444;
     padding-left: 15px;
-    padding-right: 0;
   }
 }
 

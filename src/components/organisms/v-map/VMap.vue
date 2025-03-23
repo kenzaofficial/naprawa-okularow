@@ -20,27 +20,34 @@ const props = defineProps({
   }
 });
 
+const map = ref(null);
+
 const updateMarkerStyle = (marker, newValue) => {
   const scaleValue = 'scale(1.5) translateX(-4px) translateY(-14px)';
   const transformValue = marker.style.transform.replace(scaleValue, '');
   const newTransformValue = newValue ? scaleValue : '';
+  marker.style.transition = 'transform 0.1s linear';
   marker.style.transform = transformValue + newTransformValue;
 };
 
 watch(() => props.activeMarker, (newValue, oldValue) => {
   const markerElement = document.querySelector(`.v-map__marker--${newValue || oldValue}`);
   updateMarkerStyle(markerElement, newValue);
+  const currentMarkerData = props.markers.find((marker) => marker.id === newValue);
+  if (currentMarkerData) {
+    map.value.panTo([currentMarkerData.lat, currentMarkerData.lng]);
+  }
 });
 
 onMounted(() => {
   import('leaflet').then((L) => {
     // Инициализация карты
-    const map = L.map("map").setView([props.centerCoordinates.lat, props.centerCoordinates.lng], 12);
+    map.value = L.map("map").setView([props.centerCoordinates.lat, props.centerCoordinates.lng], 12);
   
     // Подключаем слой OpenStreetMap
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "&copy; OpenStreetMap contributors",
-    }).addTo(map);
+    }).addTo(map.value);
     // Добавляем маркеры на карту
     props.markers.forEach(({ lat, lng, text, id }) => {
       const customIcon = L.divIcon({
@@ -53,7 +60,7 @@ onMounted(() => {
       });
 
       L.marker([lat, lng], { icon: customIcon })
-        .addTo(map)
+        .addTo(map.value)
         .bindPopup(text);
     });
   });

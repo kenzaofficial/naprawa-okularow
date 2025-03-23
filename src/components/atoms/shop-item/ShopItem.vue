@@ -140,7 +140,7 @@ const additionalDataForState = computed(() => {
 .shop-item__name {
   display: block;
   width: 100%;
-  font-size: 16px; /* 18 */
+  font-size: 16px;
   color: #fff;
   font-weight: 500;
 }

@@ -49,7 +49,7 @@ const filePreviews = computed(() => files.value.map((file) => ({
 
 const onFileChange = (event) => {
   const filesArray = Array.from(event.target.files);
-  files.value = filesArray;
+  files.value = [...filesArray, ...files.value];
   emit('change-photos', filesArray);
 };
 
@@ -158,6 +158,7 @@ onBeforeUnmount(() => {
   height: 22px;
   border-radius: 50%;
   background-color: red;
+  z-index: 1;
   transition: transform 0.1s linear;
 
   &::before,

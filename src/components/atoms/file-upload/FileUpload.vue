@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
   }
 }
 
-.file-upload__preview:hover .file-upload__delete {
+.file-upload__delete:hover {
   transform: scale(1.3);
 }
 

@@ -6,6 +6,16 @@
         <h4 class="other-city__step-title">Krok pierwszy:</h4>
         <form-client
           title="Wypełnij formularz, a my skontaktujemy się z Tobą jak najszybciej!"
+          @sent="onSent"
+          @error="onError"
+        />
+        <confirm-window
+          :is-open="isOpen"
+          :mode="mode"
+          button-text="Jasne"
+          :heading="heading"
+          :text="text"
+          @close="isOpen = false"
         />
       </div>
       <div class="other-city__step other-city__step--second">
@@ -37,11 +47,34 @@
     </v-container>
   </div>
 </template>
+
 <script setup>
 import VContainer from "~/components/atoms/v-container/VContainer.vue";
 import VTitle from "~/components/atoms/v-title/VTitle.vue";
 import FormClient from "~/components/forms/form-client/FormClient.vue";
+import ConfirmWindow from "~/components/atoms/confirm-window/ConfirmWindow.vue";
+import { ref } from "vue";
+
+const isOpen = ref(false);
+const heading = ref('');
+const text = ref('');
+const mode = ref('default');
+
+const onSent = () => {
+  mode.value = 'default';
+  heading.value = 'Twoje zgłoszenie zostało wysłane!';
+  text.value = 'Skontaktujemy się z Tobą w najbliższym czasie. Dziękujemy za zaufanie!';
+  isOpen.value = true;
+};
+
+const onError = () => {
+  mode.value = 'error';
+  heading.value = 'Ups, coś poszło nie tak!';
+  text.value = 'Spróbuj ponownie lub skontaktuj się z nami telefonicznie.';
+  isOpen.value = true;
+};
 </script>
+
 <style>
 .other-city {
   padding: 30px 0;

@@ -96,8 +96,15 @@ const currentYear = computed(() => new Date().getFullYear());
 
 .footer__container {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__container {
+    flex-direction: row;
+  }
 }
 
 .footer__address {
@@ -130,6 +137,11 @@ const currentYear = computed(() => new Date().getFullYear());
   margin-left: auto;
   gap: 5px 10px;
   align-items: center;
+}
+
+.footer__item {
+  display: inline-block;
+  margin-right: auto;
 }
 
 .footer__link {

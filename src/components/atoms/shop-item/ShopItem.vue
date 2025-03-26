@@ -106,7 +106,7 @@ const additionalDataForState = computed(() => {
 });
 </script>
 
-<style scoped>
+<style>
 .shop-item {
   width: 100%;
   padding: 15px 5px;

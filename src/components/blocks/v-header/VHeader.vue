@@ -29,9 +29,9 @@
           </li>
         </ul>
       </nav>
-      <a class="header__contact-link" href="tel:+48881554779">
+      <a class="header__contact-link" href="tel:+48452928539">
         <img src="/public/icons/telefon.svg" alt="telefon" width="10" />
-        +48 881-554-779</a
+        +48 452-928-539</a
       >
       <ul class="header__social-list">
         <li
@@ -77,9 +77,9 @@ const socials = ref([
     alt: "facebook",
   },
   {
-    href: "https://www.instagram.com/naprawa_okularow?igsh=b2ljbmZrNTRxOHNv",
+    href: "https://www.instagram.com/pilna_naprawa_okularow",
     icon: "./icons/instagram.svg",
-    alt: "instagram",
+    alt: "Instagram",
   },
   {
     href: "https://wa.me/+48881554779",

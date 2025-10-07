@@ -8,7 +8,7 @@
           class="footer__address-link"
           href="https://maps.app.goo.gl/KUjSfp7xy2pU284F8"
           target="_blank"
-          >Centrum Handlowe Borek. ul. Hallera 52. lokal na przeciwko RESERVED
+          >Centrum Handlowe Borek. ul. Hallera 52. lokal na przeciwko SinSay
           <b>Pn-Sb. 9.00-21.00</b>
         </a>
         <a
@@ -61,9 +61,9 @@ const socials = ref([
     alt: "facebook icon",
   },
   {
-    href: "https://www.instagram.com/naprawa_okularow?igsh=b2ljbmZrNTRxOHNv",
+    href: "https://www.instagram.com/pilna_naprawa_okularow",
     icon: "/icons/instagram.svg",
-    text: "instagram",
+    text: "Instagram",
     alt: "instagram icon",
   },
   {
@@ -77,12 +77,6 @@ const socials = ref([
     icon: "/icons/telegram.svg",
     text: "+48 881-554-779",
     alt: "telegram icon",
-  },
-  {
-    href: "#",
-    icon: "/icons/viber.svg",
-    text: "+48 881-554-779",
-    alt: "viber icon",
   },
 ]);
 const currentYear = computed(() => new Date().getFullYear());

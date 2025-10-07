@@ -21,7 +21,7 @@
         :error="errors.errorInpostNumberText"
         class="form-client__field"
         v-model="form.inpostNumber"
-        label="Numer paczkomatu Inpost*"
+        label="Twój numer paczkomatu Inpost*"
         placeholder="Wpisz numer pazckomatu Inpost"
       />
       <v-input

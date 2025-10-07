@@ -6,9 +6,9 @@
         <h2 class="hero__subtitle">Naprawiamy wszystkie uszkodzeńia</h2>
         <p class="hero__description">Na terenie całej Polski</p>
         <div class="hero__contacts">
-          <a class="hero__contact-link" href="tel:+48881554779">
+          <a class="hero__contact-link" href="tel:+48452928539">
             <img src="@/public/icons/telefon.svg" alt="telefon" width="20" />
-            +48 881-554-779</a
+            +48 452-928-539</a
           >
           <a
             class="hero__reviews-link"

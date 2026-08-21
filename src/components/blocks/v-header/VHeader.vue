@@ -29,9 +29,9 @@
           </li>
         </ul>
       </nav>
-      <a class="header__contact-link" href="tel:+48452928539">
+      <a class="header__contact-link" href="tel:+48731780151">
         <img src="/public/icons/telefon.svg" alt="telefon" width="10" />
-        +48 452-928-539</a
+        +48 731-780-151</a
       >
       <ul class="header__social-list">
         <li
@@ -82,14 +82,9 @@ const socials = ref([
     alt: "Instagram",
   },
   {
-    href: "https://wa.me/+48881554779",
+    href: "https://wa.me/+48731780151",
     icon: "./icons/whatsapp.svg",
     alt: "whatsapp",
-  },
-  {
-    href: "https://t.me/naprawa_okularow",
-    icon: "./icons/telegram.svg",
-    alt: "telegram",
   },
 ]);
 

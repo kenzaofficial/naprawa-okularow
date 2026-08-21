@@ -1,11 +1,11 @@
 <template>
   <div class="other-city" id="InPost">
-    <v-title text="Wyślij okulary paczkomatem" />
+    <v-title text="Nie jesteś z Wrocławia?" />
     <v-container class="other-city__content">
       <div class="other-city__step other-city__step--first">
         <h4 class="other-city__step-title">Krok pierwszy:</h4>
         <form-client
-          title="Wypełnij formularz, a my skontaktujemy się z Tobą jak najszybciej!"
+          title="Wypełnij formularz, a skontaktujemy się z Tobą jak najszybciej!"
           @sent="onSent"
           @error="onError"
         />

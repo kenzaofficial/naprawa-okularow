@@ -29,7 +29,7 @@
             v-for="(social, index) in socials"
             :key="index"
           >
-            <a class="footer__link" :href="social.href">
+            <a class="footer__link" :href="social.href" target="_blank">
               <img :src="social.icon" :alt="social.alt" width="15" />
               {{ social.text }}
             </a>
@@ -39,7 +39,7 @@
     </v-container>
     <div class="footer__bottom">
       <a class="footer__email" href="mailto:naprawkaokularow@gmail.com">
-        <img src="@/public/icons/email.svg" alt="email" width="10" />
+        <img src="@/public/icons/email.svg" alt="email" width="15" />
         naprawkaokularow@gmail.com</a
       >
       <span class="footer__copyright"
@@ -67,16 +67,10 @@ const socials = ref([
     alt: "instagram icon",
   },
   {
-    href: "https://wa.me/+48881554779",
+    href: "https://wa.me/+48731780151",
     icon: "/icons/whatsapp.svg",
-    text: "+48 881-554-779",
+    text: "+48 731-780-151",
     alt: "whatsapp icon",
-  },
-  {
-    href: "https://t.me/naprawa_okularow",
-    icon: "/icons/telegram.svg",
-    text: "+48 881-554-779",
-    alt: "telegram icon",
   },
 ]);
 const currentYear = computed(() => new Date().getFullYear());

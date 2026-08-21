@@ -50,14 +50,14 @@ export default {
 }
 .input__label {
   display: block;
-  padding-left: 5px;
-  margin-bottom: 2px;
-  font-size: 12px;
+  margin-bottom: 15px;
+  font-size: 13px;
 }
 
 .input__field {
   width: 100%;
   display: inline-block;
+  margin-top: 5px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid var(--text-primary);

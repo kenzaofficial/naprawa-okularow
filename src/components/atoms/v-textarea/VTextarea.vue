@@ -1,6 +1,6 @@
 <template>
   <div class="textarea">
-    <label class="textarea__label" for="textarea">Napisz do nas</label>
+    <label class="textarea__label" for="textarea">Opisz problem</label>
     <textarea
       id="textarea"
       class="textarea__field"
@@ -45,7 +45,7 @@ export default {
   display: block;
   text-align: left;
   padding-left: 5px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   font-size: 12px;
 }
 

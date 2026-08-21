@@ -21,8 +21,8 @@
         :error="errors.errorInpostNumberText"
         class="form-client__field"
         v-model="form.inpostNumber"
-        label="Twój numer paczkomatu Inpost*"
-        placeholder="Wpisz numer pazckomatu Inpost"
+        label="Paczkomat InPost*"
+        placeholder="Wpisz numer Paczkomatu, np. WRO01A"
       />
       <v-input
         class="form-client__field"
@@ -33,14 +33,14 @@
       <v-textarea
         class="form-client__field"
         v-model="form.message"
-        placeholder="Tutaj możesz opisać podział okularów"
+        placeholder="Krótko opisz, co stało się z okularami"
       />
       <file-upload
         :error="errors.errorPhotoUpload"
         class="form-client__field"
         @change-photos="photos = $event"
       />
-      <v-button :disabled="loading" type="submit" text="Aplikuj do nas" />
+      <v-button :disabled="loading" type="submit" text="Zgłoś naprawę" />
     </fieldset>
   </form>
 </template>

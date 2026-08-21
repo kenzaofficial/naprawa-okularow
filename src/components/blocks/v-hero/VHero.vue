@@ -6,9 +6,9 @@
         <h2 class="hero__subtitle">Naprawiamy wszystkie uszkodzeńia</h2>
         <p class="hero__description">Na terenie całej Polski</p>
         <div class="hero__contacts">
-          <a class="hero__contact-link" href="tel:+48452928539">
+          <a class="hero__contact-link" href="tel:+48731780151">
             <img src="@/public/icons/telefon.svg" alt="telefon" width="20" />
-            +48 452-928-539</a
+            +48 731-780-151</a
           >
           <a
             class="hero__reviews-link"
@@ -29,13 +29,19 @@
             class="hero__address-link"
             href="https://maps.app.goo.gl/KUjSfp7xy2pU284F8"
             target="_blank"
-            >Wrocław, Centrum Handlowe Borek. ul.Hallera 52. Pn-Sb. 9.00-21.00
+            >Borek. al.Hallera 52. Pn-Sb. 9.00-21.00
           </a>
           <a
             class="hero__address-link"
             href="https://maps.app.goo.gl/mE9YzPnjoK1cterV6"
             target="_blank"
-            >Wrocław, Centrum Handlowe E.Leclerc ul.zakładowa 2-4 Pn-Sb. 10.00 - 18.00
+            >E.Leclerc ul.Zakładowa 2-4 Pn-Sb. 10.00 - 18.00
+          </a>
+          <a
+            class="hero__address-link"
+            href="https://maps.app.goo.gl/TT5xYgPQwBV3XKyT6"
+            target="_blank"
+            >Magnolia Park ul.Legnicka 58 Pn-Sb. 9.00-21.00
           </a>
         </div>
       </div>
@@ -139,7 +145,6 @@ onMounted(() => {
   text-align: center;
   padding: 10px;
   font-size: 18px;
-  max-width: 400px;
   color: var(--text-secondary);
   background-color: var(--text-primary);
   border-radius: var(--default-radius);
@@ -213,7 +218,7 @@ onMounted(() => {
   }
 
   .hero__contacts {
-    max-width: 400px;
+    max-width: 420px;
   }
 
   .hero__contact-link {
